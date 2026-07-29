@@ -6,6 +6,8 @@ export const header = {
   email: "rishav9707@gmail.com",
   linkedin: "https://www.linkedin.com/in/rishav27/",
   github: "https://github.com/Rishav-27",
+  twitter: "https://x.com/Rishavk21962821",
+  instagram: "https://www.instagram.com/1227_rishi.k",
   location: "Jamshedpur, Jharkhand",
 };
 

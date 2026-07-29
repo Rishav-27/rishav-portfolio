@@ -22,6 +22,8 @@ export default function Contact() {
           <div style={{ display: "flex", gap: 22, fontSize: 14, fontWeight: 500 }}>
             <a href={header.github} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>GitHub</a>
             <a href={header.linkedin} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>LinkedIn</a>
+            <a href={header.twitter} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>Twitter</a>
+            <a href={header.instagram} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>Instagram</a>
             <a href={`mailto:${header.email}`} style={{ color: "var(--dim)" }}>Email</a>
           </div>
         </div>

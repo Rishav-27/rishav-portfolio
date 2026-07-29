@@ -49,6 +49,8 @@ export default function Hero() {
           <div style={{ display: "flex", gap: 14, ...val }}>
             <a href={header.github} target="_blank" rel="noreferrer" style={underline}>GitHub</a>
             <a href={header.linkedin} target="_blank" rel="noreferrer" style={underline}>LinkedIn</a>
+            <a href={header.twitter} target="_blank" rel="noreferrer" style={underline}>Twitter</a>
+            <a href={header.instagram} target="_blank" rel="noreferrer" style={underline}>Instagram</a>
           </div>
         </div>
       </div>

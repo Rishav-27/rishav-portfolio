@@ -13,7 +13,15 @@ import Contact from "../components/Contact";
 
 export default function Home() {
   return (
-    <div style={{ background: "var(--bg)", color: "var(--fg)", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
+    <div
+      style={{
+        background: "var(--bg)",
+        color: "var(--fg)",
+        minHeight: "100vh",
+        position: "relative",
+        overflowX: "hidden",
+      }}
+    >
       <ScrollFX />
       <Navbar />
       <div style={{ position: "relative", zIndex: 1 }}>
