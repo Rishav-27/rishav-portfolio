@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root{
+  --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
+  --line:rgba(0,0,0,.10); --line2:rgba(0,0,0,.18);
+  --surf:rgba(0,0,0,.035); --surf2:rgba(0,0,0,.07);
+  --navbg:rgba(255,255,255,.72); --stroke:rgba(0,0,0,.55);
+  --btn-bg:#0b0b0c; --btn-fg:#ffffff; --ok:#16a34a;
+  --pad:20px; --sec:72px; --cols:1; --navlinks:none; --navcore:none; --menubtn:inline-flex;
+  --projdir:column; --projdir-r:column; --heroname:clamp(44px,13vw,84px);
+  --h2:clamp(32px,8vw,52px); --aboutcols:1;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
+    --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.22);
+    --surf:rgba(255,255,255,.035); --surf2:rgba(255,255,255,.08);
+    --navbg:rgba(0,0,0,.6); --stroke:rgba(255,255,255,.65);
+    --btn-bg:#ffffff; --btn-fg:#000000; --ok:#22c55e;
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root[data-theme="light"]{
+  --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
+  --line:rgba(0,0,0,.10); --line2:rgba(0,0,0,.18);
+  --surf:rgba(0,0,0,.035); --surf2:rgba(0,0,0,.07);
+  --navbg:rgba(255,255,255,.72); --stroke:rgba(0,0,0,.55);
+  --btn-bg:#0b0b0c; --btn-fg:#ffffff; --ok:#16a34a;
 }
+:root[data-theme="dark"]{
+  --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
+  --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.22);
+  --surf:rgba(255,255,255,.035); --surf2:rgba(255,255,255,.08);
+  --navbg:rgba(0,0,0,.6); --stroke:rgba(255,255,255,.65);
+  --btn-bg:#ffffff; --btn-fg:#000000; --ok:#22c55e;
+}
+@media (min-width:700px){ :root{ --pad:36px; --sec:104px; --cols:2; --aboutcols:2; } }
+@media (min-width:820px){ :root{ --navcore:flex; } }
+@media (min-width:1000px){ :root{ --pad:56px; --sec:140px; --projdir:row; --projdir-r:row-reverse; } }
+@media (min-width:1180px){ :root{ --navlinks:flex; --menubtn:none; } }
+
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
+body{font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+*{box-sizing:border-box;}
+a{color:var(--fg);text-decoration:none;}
+a:hover{color:var(--dim);}
+::selection{background:var(--fg);color:var(--bg);}
+
+/* alternating project rows */
+[data-projects] > *{flex-direction:var(--projdir);}
+[data-projects] > *:nth-child(even){flex-direction:var(--projdir-r);}
+
+@keyframes om-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes om-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+::-webkit-scrollbar{display:none;}
+*{-ms-overflow-style:none;scrollbar-width:none;}
