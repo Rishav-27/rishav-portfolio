@@ -9,7 +9,7 @@ export default function ProjectRow({ p }: { p: Project }) {
           <div role="img" aria-label={p.title} style={{
             borderRadius: 20, overflow: "hidden", border: "1px solid var(--line)",
             backgroundColor: "var(--surf)", backgroundImage: `url(${p.img})`,
-            backgroundSize: "cover", backgroundPosition: "top center", aspectRatio: "16/11",
+            backgroundSize: "cover", backgroundPosition: "top center", aspectRatio: "16/9",
           }} />
         ) : (
           <div style={{
@@ -17,7 +17,7 @@ export default function ProjectRow({ p }: { p: Project }) {
             display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 12,
           }}>
             <div style={{ fontSize: "clamp(34px,6vw,64px)", fontWeight: 800, letterSpacing: "-.04em", lineHeight: 1, color: "transparent", WebkitTextStroke: "1px var(--stroke)", opacity: .5 }}>{p.title}</div>
-            <div style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12.5, color: "var(--faint)", letterSpacing: ".14em" }}>BUILDING NOW</div>
+            <div style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12.5, color: "var(--faint)", letterSpacing: ".14em" }}>{p.kind === "In progress" ? "BUILDING NOW" : "NO PREVIEW"}</div>
           </div>
         )}
       </div>
@@ -59,7 +59,7 @@ export function AllProjectsCTA() {
   return (
     <div data-reveal style={{ marginTop: "clamp(48px,7vw,88px)", paddingTop: "clamp(32px,4vw,44px)", borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
       <div style={{ fontSize: "clamp(18px,2.4vw,24px)", fontWeight: 600, letterSpacing: "-.02em", maxWidth: "26ch", textWrap: "pretty" }}>
-        Six more projects, written up in full.
+        Seven more projects, written up in full.
       </div>
       <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 52, padding: "0 28px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 15 }}>See all projects →</Link>
     </div>

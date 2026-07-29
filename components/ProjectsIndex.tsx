@@ -26,7 +26,7 @@ export default function ProjectsIndex() {
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 60, background: "var(--navbg)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)", borderBottom: "1px solid var(--line)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 var(--pad)", height: 66, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 11, minWidth: 0 }}>
-            <Image src="/rishav.jpg" alt={header.name} width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover", objectPosition: "56% 62%", border: "1px solid var(--line2)", flex: "none" }} />
+            <Image src="/rishav.jpg" alt={header.name} width={36} height={36} style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover", objectPosition: "56% 62%", border: "1px solid var(--line2)", flex: "none" }} />
             <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: "-.02em", whiteSpace: "nowrap" }}>Rishav<span style={{ color: "var(--dim)" }}>.dev</span></span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -69,7 +69,7 @@ export default function ProjectsIndex() {
             ) : (
               <div style={{ aspectRatio: "21/9", background: "var(--surf)", borderBottom: "1px solid var(--line)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 12, padding: 24 }}>
                 <div style={{ fontSize: "clamp(34px,6vw,64px)", fontWeight: 800, letterSpacing: "-.04em", lineHeight: 1, color: "transparent", WebkitTextStroke: "1px var(--stroke)", opacity: .5 }}>{p.title}</div>
-                <div style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12.5, color: "var(--faint)", letterSpacing: ".14em" }}>BUILDING NOW</div>
+                <div style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12.5, color: "var(--faint)", letterSpacing: ".14em" }}>{p.kind === "In progress" ? "BUILDING NOW" : "NO PREVIEW"}</div>
               </div>
             )}
 
@@ -121,7 +121,7 @@ export default function ProjectsIndex() {
 
               {(p.live || p.github) && (
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, paddingTop: 4 }}>
-                  {p.live && <a href={p.live} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 24px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 14 }}>Visit {host(p.live)} →</a>}
+                  {p.live && <a href={p.live} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 24px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 14, maxWidth: "100%", overflow: "hidden" }}><span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Visit {host(p.live)}</span>&nbsp;→</a>}
                   {p.github && <a href={p.github} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 24px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 14 }}>Source on GitHub</a>}
                 </div>
               )}

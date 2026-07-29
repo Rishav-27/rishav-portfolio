@@ -4,7 +4,7 @@ import { certifications } from "../data/resume";
 export default function Recognition() {
   return (
     <Section id="certifications">
-      <div data-reveal style={eyebrow}>06 — RECOGNITION</div>
+      <div data-reveal style={eyebrow}>07 — RECOGNITION</div>
       <h2 data-reveal style={{ ...h2, margin: "0 0 clamp(36px,5vw,56px)" }}>Certifications &amp; awards.</h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 14 }}>
         {certifications.map((c) => (

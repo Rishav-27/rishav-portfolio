@@ -6,6 +6,7 @@ import Work from "../components/Work";
 import Building from "../components/Building";
 import Path from "../components/Path";
 import Toolkit from "../components/Toolkit";
+import GithubActivity from "../components/GithubActivity";
 import Recognition from "../components/Recognition";
 import HowIShowUp from "../components/HowIShowUp";
 import Contact from "../components/Contact";
@@ -22,6 +23,7 @@ export default function Home() {
         <Building />
         <Path />
         <Toolkit />
+        <GithubActivity />
         <Recognition />
         <HowIShowUp />
         <Contact />

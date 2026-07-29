@@ -17,7 +17,24 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    num: "01", year: "2026", title: "Aeoix", kind: "Team project",
+    num: "01", year: "2026", title: "SK Enterprises", kind: "Personal project",
+    kicker: "Manufacturing & trading company site · Family business",
+    img: "/skenterprises.png",
+    role: "Sole engineer — full stack", team: "Solo",
+    hard: "Making a manufacturing and trading business feel credible online, fast",
+    description:
+      "A marketing site for our family's manufacturing and trading business, built to give the company a fast, professional web presence and a clear way for buyers to get in touch.",
+    items: [
+      "Next.js site with product/catalog sections for the company's manufacturing and trading lines.",
+      "Enquiry and contact forms with React Hook Form and Zod validation.",
+      "Scroll-driven animation and page transitions with GSAP and Framer Motion.",
+      "Smooth-scroll and carousel-based product showcases.",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP"],
+    live: "https://skenterprises-g2k2z0ru9-rishav-kumars-projects-f6216bfd.vercel.app/",
+  },
+  {
+    num: "02", year: "2026", title: "Aeoix", kind: "Team project",
     kicker: "Answer Engine Optimization platform · Team project at WebbyWolf",
     img: "/aeoix.png",
     role: "Frontend engineering — marketing site and in-app surfaces",
@@ -35,7 +52,7 @@ export const projects: Project[] = [
     live: "https://aeoix.com/",
   },
   {
-    num: "02", year: "2026", title: "Linkova", kind: "Team project",
+    num: "03", year: "2026", title: "Linkova", kind: "Team project",
     kicker: "Publisher marketplace, 250k+ listings · Team project at WebbyWolf",
     img: "/linkova.png",
     role: "Frontend engineering — catalog search and ordering flows",
@@ -53,7 +70,7 @@ export const projects: Project[] = [
     live: "https://linkova.club/",
   },
   {
-    num: "03", year: "2025", title: "TradeVerse", kind: "Personal project",
+    num: "04", year: "2025", title: "TradeVerse", kind: "Personal project",
     kicker: "Real-time trading platform · Personal project",
     img: "/tradeverse_ui.png",
     role: "Sole engineer — full stack", team: "Solo",
@@ -69,7 +86,7 @@ export const projects: Project[] = [
     github: "https://github.com/Rishav-27",
   },
   {
-    num: "04", year: "2025", title: "Real Estate Platform", kind: "Personal project",
+    num: "05", year: "2025", title: "Real Estate Platform", kind: "Personal project",
     kicker: "Listings marketplace · Personal project",
     img: "/realestate_ui.png",
     role: "Sole engineer — full stack", team: "Solo",
@@ -85,7 +102,7 @@ export const projects: Project[] = [
     github: "https://github.com/Rishav-27",
   },
   {
-    num: "05", year: "2024", title: "MultiLangDetect", kind: "Personal project",
+    num: "06", year: "2024", title: "MultiLangDetect", kind: "Personal project",
     kicker: "Spoken-language classification · Personal project",
     img: "/multilang_ui.png",
     role: "Sole engineer — model and serving", team: "Solo",
@@ -100,7 +117,7 @@ export const projects: Project[] = [
     github: "https://github.com/Rishav-27",
   },
   {
-    num: "06", year: "2026", title: "Forge", kind: "In progress",
+    num: "07", year: "2026", title: "Forge", kind: "In progress",
     kicker: "Gym & workout app",
     role: "Sole engineer — full stack", team: "Solo",
     hard: "Logging a set in under three taps, mid-workout",
@@ -114,7 +131,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
   },
   {
-    num: "07", year: "2026", title: "Pulse", kind: "In progress",
+    num: "08", year: "2026", title: "Pulse", kind: "In progress",
     kicker: "Real-time chat app",
     role: "Sole engineer — full stack", team: "Solo",
     hard: "Presence and delivery state that stay honest on a flaky connection",
@@ -128,7 +145,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Supabase Realtime"],
   },
   {
-    num: "08", year: "2026", title: "LedgerX", kind: "In progress",
+    num: "09", year: "2026", title: "LedgerX", kind: "In progress",
     kicker: "ERP & accounting system",
     role: "Sole engineer — full stack", team: "Solo",
     hard: "A schema that handles GST correctly without becoming unreadable",
@@ -142,7 +159,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Supabase"],
   },
   {
-    num: "09", year: "2026", title: "CVora", kind: "In progress",
+    num: "10", year: "2026", title: "CVora", kind: "In progress",
     kicker: "AI resume builder · My own product",
     role: "Founder and sole engineer", team: "Solo",
     hard: "PDF output that survives every ATS parser",

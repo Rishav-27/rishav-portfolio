@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <footer id="contact" style={{ padding: "var(--sec) var(--pad) 48px", borderTop: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>08 — CONTACT</div>
+        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>09 — CONTACT</div>
         <h2 data-reveal style={{ fontSize: "clamp(36px,10vw,88px)", lineHeight: .98, fontWeight: 800, letterSpacing: "-.045em", margin: "0 0 32px", maxWidth: "14ch", textWrap: "balance" }}>
           Let&apos;s build something fast.
         </h2>

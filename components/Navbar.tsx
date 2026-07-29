@@ -107,6 +107,9 @@ export default function Navbar() {
           <a href="#skills" style={extra}>
             Skills
           </a>
+          <a href="#github" style={extra}>
+            GitHub
+          </a>
           <a href="#contact" style={extra}>
             Contact
           </a>
@@ -195,6 +198,9 @@ export default function Navbar() {
           </Link>
           <a href="#skills" onClick={close} style={sheet}>
             Skills
+          </a>
+          <a href="#github" onClick={close} style={sheet}>
+            GitHub
           </a>
           <a href="#offline" onClick={close} style={sheet}>
             How I show up
