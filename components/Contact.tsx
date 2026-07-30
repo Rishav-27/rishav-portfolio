@@ -15,6 +15,7 @@ export default function Contact() {
         <div data-reveal style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: "clamp(56px,8vw,96px)" }}>
           <a href={`mailto:${header.email}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 16 }}>{header.email}</a>
           <a href={header.phoneHref} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 16 }}>{header.phone}</a>
+          <a href={header.resumePdf} download style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 16 }}>Download résumé (PDF)</a>
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 20, justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--line)", paddingTop: 28 }}>
@@ -22,7 +23,6 @@ export default function Contact() {
           <div style={{ display: "flex", gap: 22, fontSize: 14, fontWeight: 500 }}>
             <a href={header.github} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>GitHub</a>
             <a href={header.linkedin} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>LinkedIn</a>
-            <a href={header.twitter} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>Twitter</a>
             <a href={header.instagram} target="_blank" rel="noreferrer" style={{ color: "var(--dim)" }}>Instagram</a>
             <a href={`mailto:${header.email}`} style={{ color: "var(--dim)" }}>Email</a>
           </div>

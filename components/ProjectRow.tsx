@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "../data/resume";
+import { projects } from "../data/resume";
 
 export default function ProjectRow({ p }: { p: Project }) {
   return (
@@ -47,19 +48,22 @@ export default function ProjectRow({ p }: { p: Project }) {
             <a href={p.live} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 22px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 14 }}>Visit live site</a>
           )}
           {p.github && (
-            <a href={p.github} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 22px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 14 }}>Source</a>
+            <a href={p.github} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 22px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 14 }}>Source on GitHub</a>
           )}
+          <Link href={`/projects#${p.slug}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "0 22px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 14 }}>Read the case study</Link>
         </div>
       </div>
     </div>
   );
 }
 
-export function AllProjectsCTA() {
+/** Shown on the home page under the three featured projects. */
+export function AllProjectsCTA({ shown = 3 }: { shown?: number }) {
+  const rest = projects.length - shown;
   return (
     <div data-reveal style={{ marginTop: "clamp(48px,7vw,88px)", paddingTop: "clamp(32px,4vw,44px)", borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
       <div style={{ fontSize: "clamp(18px,2.4vw,24px)", fontWeight: 600, letterSpacing: "-.02em", maxWidth: "26ch", textWrap: "pretty" }}>
-        Seven more projects, written up in full.
+        {rest} more projects, written up in full.
       </div>
       <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 52, padding: "0 28px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 15 }}>See all projects →</Link>
     </div>

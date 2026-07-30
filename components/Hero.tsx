@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div data-reveal style={{ display: "inline-flex", alignSelf: "flex-start", alignItems: "center", gap: 9, padding: "7px 14px", borderRadius: 999, border: "1px solid var(--line)", background: "var(--surf)", marginBottom: 28 }}>
         <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--ok)", animation: "om-pulse 2s ease-in-out infinite" }} />
-        <span style={{ fontSize: 13, fontWeight: 500, color: "var(--dim)" }}>Open to opportunities — Full-time / Remote</span>
+        <span style={{ fontSize: 13, fontWeight: 500, color: "var(--dim)" }}>{header.openTo}</span>
       </div>
 
       <h1 data-reveal style={{ fontSize: "var(--heroname)", lineHeight: .92, fontWeight: 800, letterSpacing: "-.045em", margin: "0 0 26px", maxWidth: "16ch", textWrap: "balance" }}>
@@ -33,6 +33,7 @@ export default function Hero() {
 
       <div data-reveal style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 56 }}>
         <a href="#work" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 52, padding: "0 28px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 15 }}>View selected work</a>
+        <a href={header.resumePdf} download style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 52, padding: "0 28px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 15 }}>Download résumé (PDF)</a>
         <a href={`mailto:${header.email}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 52, padding: "0 28px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 15 }}>{header.email}</a>
       </div>
 
@@ -49,7 +50,6 @@ export default function Hero() {
           <div style={{ display: "flex", gap: 14, ...val }}>
             <a href={header.github} target="_blank" rel="noreferrer" style={underline}>GitHub</a>
             <a href={header.linkedin} target="_blank" rel="noreferrer" style={underline}>LinkedIn</a>
-            <a href={header.twitter} target="_blank" rel="noreferrer" style={underline}>Twitter</a>
             <a href={header.instagram} target="_blank" rel="noreferrer" style={underline}>Instagram</a>
           </div>
         </div>
