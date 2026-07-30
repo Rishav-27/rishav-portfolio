@@ -5,9 +5,9 @@ export default function Building() {
   return (
     <Section id="building">
       <div data-reveal style={eyebrow}>03 — IN PROGRESS</div>
-      <h2 data-reveal style={{ ...h2, margin: "0 0 20px", maxWidth: "18ch" }}>Four things on the bench right now.</h2>
+      <h2 data-reveal style={{ ...h2, margin: "0 0 20px", maxWidth: "18ch" }}>{building.length === 1 ? "One thing" : `${building.length} things`} on the bench right now.</h2>
       <p data-reveal style={{ fontSize: "clamp(16px,2vw,19px)", lineHeight: 1.6, color: "var(--dim)", maxWidth: "56ch", margin: "0 0 clamp(36px,5vw,56px)", textWrap: "pretty" }}>
-        An eight-week sprint to ship four MVPs on one shared stack — Next.js, TypeScript, Supabase, Tailwind. Building in public; each ships as it&apos;s done.
+        A focused sprint to ship {building.length} MVPs on one shared stack — Next.js, TypeScript, Supabase, Tailwind. Building in public; each ships as it&apos;s done.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 14 }}>

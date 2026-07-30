@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Section, { eyebrow, h2 } from "./Section";
+import { counts, building } from "../data/resume";
 
 const principles = [
   {
@@ -18,9 +19,11 @@ const principles = [
     b: "Half of frontend bugs are schema decisions. Being useful on both sides of the API saves everyone a round trip.",
   },
 ];
+
+// Derived from the project data — no hand-written numbers to fall out of sync.
 const stats = [
-  { v: "5+", l: "Products built", lead: true },
-  { v: "4", l: "MVPs in progress" },
+  { v: String(counts.total - counts.wip), l: "Products shipped", lead: true },
+  { v: String(counts.live), l: "Live in production" },
   { v: "1+", l: "Year shipping" },
 ];
 
@@ -112,12 +115,13 @@ export default function About() {
           >
             I&apos;ve shipped a trading platform pushing thousands of concurrent
             WebSocket updates, a CNN that identifies spoken language from raw
-            audio, and I&apos;m currently racing four MVPs of my own — including{" "}
+            audio, and{" "}
             <strong style={{ fontWeight: 600, color: "var(--fg)" }}>
               CVora
             </strong>
-            , a resume product I intend to sell. Day-to-day I also contribute to
-            live SaaS at WebbyWolf.
+            , an AI resume product of my own that&apos;s live today — with{" "}
+            {building.length} more MVPs on the bench. Day-to-day I ship frontend
+            architecture on live SaaS at WebbyWolf.
           </p>
 
           <div
