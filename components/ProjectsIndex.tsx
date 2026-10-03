@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-import { projects, header, type Project } from "../data/resume";
+import { projects, header, counts, type Project } from "../data/resume";
 
 type Key = "all" | "team" | "personal" | "wip";
 const KINDS: Record<Exclude<Key, "all">, Project["kind"]> = {
@@ -13,16 +13,6 @@ const KINDS: Record<Exclude<Key, "all">, Project["kind"]> = {
   wip: "In progress",
 };
 
-const navCore = {
-  display: "var(--navcore)",
-  alignItems: "center",
-  padding: "8px 13px",
-  borderRadius: 999,
-  fontSize: 14,
-  fontWeight: 500,
-  color: "var(--dim)",
-} as const;
-const navExtra = { ...navCore, display: "var(--navlinks)" } as const;
 const navSheet = {
   padding: "14px 4px",
   fontSize: 17,
@@ -127,31 +117,32 @@ export default function ProjectsIndex() {
             </span>
           </Link>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Link href="/#about" style={navCore}>
-              About
-            </Link>
-            <Link href="/#work" style={navCore}>
-              Work
-            </Link>
-            <Link href="/#experience" style={navCore}>
-              Experience
-            </Link>
-            <Link href="/projects" style={navCore}>
-              Projects
-            </Link>
-            <Link href="/#building" style={navExtra}>
-              Building
-            </Link>
-            <Link href="/#skills" style={navExtra}>
-              Skills
-            </Link>
-            <Link href="/#github" style={navExtra}>
-              GitHub
-            </Link>
-            <Link href="/#contact" style={navExtra}>
-              Contact
-            </Link>
+          <div
+            style={{
+              display: "var(--navcore)",
+              alignItems: "center",
+              gap: 2,
+              padding: 4,
+              borderRadius: 999,
+              border: "1px solid var(--line)",
+            }}
+          >
+            {[
+              ["/#about", "About"],
+              ["/#work", "Work"],
+              ["/projects", "Projects"],
+              ["/#skills", "Skills"],
+              ["/#contact", "Contact"],
+            ].map(([href, label]) => (
+              <Link
+                key={href}
+                href={href}
+                data-navlink
+                aria-current={href === "/projects" ? "true" : undefined}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -295,8 +286,9 @@ export default function ProjectsIndex() {
             textWrap: "pretty",
           }}
         >
-          Two products shipped with the WebbyWolf team, three I built on my own,
-          and four in progress right now. Each one lists what I actually did.
+          {counts.team} products shipped with the WebbyWolf team, {counts.personal} I
+          built on my own, and {counts.wip} in progress right now. Each one lists
+          what I actually did.
         </p>
         <p
           data-reveal
@@ -350,7 +342,9 @@ export default function ProjectsIndex() {
         {shown.map((p) => (
           <article
             key={p.num}
+            id={p.slug}
             style={{
+              scrollMarginTop: 90,
               border: "1px solid var(--line)",
               borderRadius: 24,
               overflow: "hidden",
@@ -359,11 +353,12 @@ export default function ProjectsIndex() {
             {p.img ? (
               <div
                 style={{
-                  aspectRatio: "16/9",
-                  backgroundColor: "var(--surf)",
-                  backgroundImage: `url(${p.img})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
+                  aspectRatio: p.bare ? "21/9" : "16/9",
+                  backgroundColor: p.bare ? undefined : "var(--surf)",
+                  backgroundImage: `url(${p.imgWide ?? p.img})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: p.bare ? "auto 90%" : "cover",
+                  backgroundPosition: p.bare ? "center" : "top center",
                   borderBottom: "1px solid var(--line)",
                 }}
               />

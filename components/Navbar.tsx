@@ -1,20 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { header } from "../data/resume";
 
-const core = {
-  display: "var(--navcore)",
-  alignItems: "center",
-  padding: "8px 13px",
-  borderRadius: 999,
-  fontSize: 14,
-  fontWeight: 500,
-  color: "var(--dim)",
-} as const;
-const extra = { ...core, display: "var(--navlinks)" } as const;
+const links = [
+  { id: "about", label: "About" },
+  { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
 const sheet = {
   padding: "14px 4px",
   fontSize: 17,
@@ -24,7 +21,23 @@ const sheet = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
   const close = () => setOpen(false);
+
+  // Highlight the link for whichever section is crossing the middle of the viewport.
+  useEffect(() => {
+    const els = links
+      .map((l) => document.getElementById(l.id))
+      .filter((el): el is HTMLElement => !!el);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   return (
     <nav
@@ -88,35 +101,29 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <a href="#about" style={core}>
-            About
-          </a>
-          <a href="#work" style={core}>
-            Work
-          </a>
-          <a href="#experience" style={core}>
-            Experience
-          </a>
-          <Link href="/projects" style={core}>
-            Projects
-          </Link>
-          <a href="#building" style={extra}>
-            Building
-          </a>
-          <a href="#skills" style={extra}>
-            Skills
-          </a>
-          <a href="#github" style={extra}>
-            GitHub
-          </a>
-          <a href="#contact" style={extra}>
-            Contact
-          </a>
+        <div
+          style={{
+            display: "var(--navcore)",
+            alignItems: "center",
+            gap: 2,
+            padding: 4,
+            borderRadius: 999,
+            border: "1px solid var(--line)",
+          }}
+        >
+          {links.map((l) => (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              data-navlink
+              aria-current={active === l.id ? "true" : undefined}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          {/* <a href={header.phoneHref} style={{ display: "var(--navlinks)", alignItems: "center", height: 40, padding: "0 12px", borderRadius: 999, fontSize: 13.5, fontWeight: 500, color: "var(--dim)", whiteSpace: "nowrap" }}>{header.phone}</a> */}
           <ThemeToggle />
           <a
             href={`mailto:${header.email}`}
@@ -193,7 +200,7 @@ export default function Navbar() {
           <a href="#experience" onClick={close} style={sheet}>
             Experience
           </a>
-          <Link href="/projects" style={sheet}>
+          <Link href="/projects" onClick={close} style={sheet}>
             All projects
           </Link>
           <a href="#skills" onClick={close} style={sheet}>

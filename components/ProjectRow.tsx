@@ -5,9 +5,12 @@ import { projects } from "../data/resume";
 export default function ProjectRow({ p }: { p: Project }) {
   return (
     <div data-tilt style={{ display: "flex", gap: "clamp(24px,4vw,64px)", alignItems: "center", willChange: "transform" }}>
-      <div style={{ flex: "1 1 0", minWidth: 0, width: "100%" }}>
+      <div style={{ flex: p.bare ? "1.5 1 0" : "1 1 0", minWidth: 0, width: "100%" }}>
         {p.img ? (
-          <div role="img" aria-label={p.title} style={{
+          <div role="img" aria-label={p.title} style={p.bare ? {
+            backgroundImage: `url(${p.img})`, backgroundRepeat: "no-repeat",
+            backgroundSize: "contain", backgroundPosition: "center", aspectRatio: "1675/1226",
+          } : {
             borderRadius: 20, overflow: "hidden", border: "1px solid var(--line)",
             backgroundColor: "var(--surf)", backgroundImage: `url(${p.img})`,
             backgroundSize: "cover", backgroundPosition: "top center", aspectRatio: "16/9",
@@ -57,7 +60,7 @@ export default function ProjectRow({ p }: { p: Project }) {
   );
 }
 
-/** Shown on the home page under the three featured projects. */
+/** Shown on the home page under the featured projects. */
 export function AllProjectsCTA({ shown = 3 }: { shown?: number }) {
   const rest = projects.length - shown;
   return (

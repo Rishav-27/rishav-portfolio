@@ -45,8 +45,7 @@ export default function Path() {
                 </div>
                 <div style={stamp}>{e.duration}</div>
                 <h4 style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 4px", textWrap: "pretty" }}>{e.level}</h4>
-                <div style={{ fontSize: 15, color: "var(--dim)", marginBottom: 12 }}>{e.institution} · {e.location}</div>
-                <div style={{ display: "inline-block", fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, padding: "5px 11px", borderRadius: 8, background: "var(--surf)", border: "1px solid var(--line)", color: "var(--dim)" }}>{e.score}</div>
+                <div style={{ fontSize: 15, color: "var(--dim)" }}>{e.institution} · {e.location}</div>
               </div>
             ))}
           </div>

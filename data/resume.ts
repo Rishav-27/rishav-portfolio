@@ -2,8 +2,6 @@ export const header = {
   name: "Rishav Kumar",
   title: "Full-Stack Software Engineer",
   resumeTitle: "Full Stack Software Engineer",
-  phone: "+91 70610 94592",
-  phoneHref: "tel:+917061094592",
   email: "rishav9707@gmail.com",
   linkedin: "https://www.linkedin.com/in/rishav27/",
   github: "https://github.com/Rishav-27",
@@ -30,6 +28,10 @@ export type Project = {
   kind: "Team project" | "Personal project" | "In progress";
   kicker: string;
   img?: string;
+  /** true when img is a transparent cut-out that should sit on the page with no card behind it */
+  bare?: boolean;
+  /** optional wider variant for the full-width cards on /projects */
+  imgWide?: string;
   role: string;
   team: string;
   hard: string;
@@ -139,6 +141,66 @@ export const projects: Project[] = [
   },
   {
     num: "04",
+    slug: "huddle",
+    year: "2026",
+    title: "Huddle",
+    kind: "Personal project",
+    kicker: "Private, end-to-end encrypted messenger · My own product",
+    img: "/huddle-ios.png",
+    bare: true,
+    imgWide: "/huddle-ios-wide.png",
+    role: "Founder and sole engineer — Android, iOS and relay server",
+    team: "Solo",
+    hard: "A relay that, if breached or seized, holds nothing worth reading",
+    description:
+      "A messenger with no phone number and post-quantum end-to-end encryption, where the server only ever sees ciphertext and forgets each message once it's delivered.",
+    items: [
+      "Integrated the Signal Protocol via libsignal — PQXDH key agreement with Kyber-1024 and the Double Ratchet, so every message has its own key.",
+      "Built a Rust/Axum relay serving prekey bundles and per-device mailboxes that delete each message on acknowledgement.",
+      "Shipped native apps in Kotlin + Jetpack Compose and SwiftUI: chats, replies, reactions, read receipts, typing indicators, disappearing messages and 24-hour statuses.",
+      "Hardened the client with message padding, Argon2id + XChaCha20-Poly1305 encrypted backups, PIN lock with escalating lockout, screenshot protection and safety-number verification.",
+    ],
+    tech: [
+      "Rust",
+      "Axum",
+      "Kotlin",
+      "Jetpack Compose",
+      "SwiftUI",
+      "libsignal",
+    ],
+    // Repo is private — make it public and add the URL here.
+  },
+  {
+    num: "05",
+    slug: "ledgerx",
+    year: "2026",
+    title: "LedgerX",
+    kind: "Personal project",
+    kicker: "Offline GST billing & accounting desktop app · My own product",
+    img: "/ledgerx.png",
+    role: "Founder and sole engineer",
+    team: "Solo",
+    hard: "Double-entry books and GST returns that always reconcile, fully offline",
+    description:
+      "GST billing, inventory and accounting for Indian businesses — a desktop app that works without internet and keeps every company's books on the user's own computer.",
+    items: [
+      "Built GST sales and purchase invoicing with CGST/SGST vs IGST from place of supply, credit/debit notes, orders and customisable print, PDF and thermal bill formats.",
+      "Engineered true double-entry books on a Tally-style chart of accounts — every voucher must balance — with trial balance, P&L and balance sheet.",
+      "Generated GSTR-1 and GSTR-3B returns with CSV export, plus live inventory valued at weighted average cost.",
+      "Made the books tamper-evident: versioned bill alterations, an audit trail of every entry and login, and GSTIN check-digit validation.",
+    ],
+    tech: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "SQLite",
+      "Tailwind CSS",
+      "Vitest",
+    ],
+    // Repo is private — make it public and add the URL here.
+  },
+  {
+    num: "06",
     slug: "tradeverse",
     year: "2025",
     title: "TradeVerse",
@@ -160,7 +222,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "05",
+    num: "07",
     slug: "real-estate-platform",
     year: "2025",
     title: "Real Estate Platform",
@@ -182,7 +244,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "06",
+    num: "08",
     slug: "sk-enterprises",
     year: "2026",
     title: "SK Enterprises",
@@ -206,7 +268,7 @@ export const projects: Project[] = [
     // github: "https://github.com/Rishav-27/<sk-enterprises-repo>",
   },
   {
-    num: "07",
+    num: "09",
     slug: "multilangdetect",
     year: "2024",
     title: "MultiLangDetect",
@@ -227,7 +289,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "08",
+    num: "10",
     slug: "forge",
     year: "2026",
     title: "Forge",
@@ -245,46 +307,6 @@ export const projects: Project[] = [
       "Shipping progress tracking across weeks.",
     ],
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-  },
-  {
-    num: "09",
-    slug: "pulse",
-    year: "2026",
-    title: "Pulse",
-    kind: "In progress",
-    kicker: "Real-time chat app",
-    role: "Sole engineer — full stack",
-    team: "Solo",
-    hard: "Presence and delivery state that stay honest on a flaky connection",
-    description:
-      "One-to-one messaging with presence, typing indicators and delivery state.",
-    items: [
-      "Modelled auth, profiles and one-to-one conversations.",
-      "Building real-time messaging over Supabase Realtime channels.",
-      "Implementing online status and typing indicators.",
-      "Engineering optimistic sends with reconciliation on reconnect.",
-    ],
-    tech: ["Next.js", "TypeScript", "Supabase Realtime"],
-  },
-  {
-    num: "10",
-    slug: "ledgerx",
-    year: "2026",
-    title: "LedgerX",
-    kind: "In progress",
-    kicker: "ERP & accounting system",
-    role: "Sole engineer — full stack",
-    team: "Solo",
-    hard: "A schema that handles GST correctly without becoming unreadable",
-    description:
-      "Company setup, customers, products, invoicing with GST and PDF export.",
-    items: [
-      "Building multi-company auth and organisation setup.",
-      "Designing customer and product catalogs with relational integrity.",
-      "Implementing invoice generation with GST calculation.",
-      "Shipping server-rendered PDF invoice export.",
-    ],
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Supabase"],
   },
 ];
 
@@ -323,21 +345,18 @@ export const education = [
     institution: "Chandigarh University",
     location: "Mohali",
     duration: "2021 — 2025",
-    score: "CGPA 7.43 / 10",
   },
   {
     level: "Class XII (PCM)",
     institution: "Valley View School",
     location: "Jamshedpur",
     duration: "2020 — 2021",
-    score: "70%",
   },
   {
     level: "Class X",
     institution: "Ramakrishna Mission English School",
     location: "Jamshedpur",
     duration: "2018 — 2019",
-    score: "76.4%",
   },
 ];
 
@@ -405,22 +424,6 @@ export const building = [
       "Workout plans, an exercise library, and logging that takes seconds between sets — not a spreadsheet with a skin on it.",
     tech: ["Next.js", "Supabase", "TypeScript"],
   },
-  {
-    name: "Pulse",
-    type: "Real-time chat app",
-    status: "IN PROGRESS",
-    blurb:
-      "One-to-one messaging with presence, typing indicators and delivery state. A reason to get real-time transport right from scratch.",
-    tech: ["Next.js", "Supabase Realtime", "TypeScript"],
-  },
-  {
-    name: "LedgerX",
-    type: "ERP & accounting system",
-    status: "IN PROGRESS",
-    blurb:
-      "Customers, products, invoicing with GST and PDF export. The most schema-heavy thing I've designed.",
-    tech: ["Next.js", "PostgreSQL", "Supabase"],
-  },
 ];
 
 /**
@@ -442,10 +445,10 @@ export const certifications = [
 ];
 
 export const achievements = [
-  "Shipped 7 full-stack products end to end — 4 live in production.",
+  "Shipped 9 products end to end — web, desktop and native mobile.",
   "Cut build time for new features by approximately 30% with a shared component library at WebbyWolf.",
   "Engineered faceted search over a 250,000+ publisher catalog spanning 150+ countries.",
-  "3 further MVPs in active development: Forge, Pulse, LedgerX.",
+  "Built Huddle, a post-quantum end-to-end encrypted messenger, on the Signal Protocol with a Rust relay.",
 ];
 
 export const places = [
