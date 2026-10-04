@@ -27,7 +27,7 @@ export default function Toolkit() {
   return (
     <section id="skills" style={{ padding: "var(--sec) 0", borderTop: "1px solid var(--line)", overflow: "hidden" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 var(--pad) clamp(36px,5vw,56px)" }}>
-        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>05 — TOOLKIT</div>
+        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>04 — TOOLKIT</div>
         <h2 data-reveal style={{ fontSize: "var(--h2)", lineHeight: 1.02, fontWeight: 800, letterSpacing: "-.04em", margin: 0 }}>What I work with.</h2>
       </div>
 

@@ -591,6 +591,58 @@ export default function ProjectsIndex() {
                 </ul>
               </div>
 
+              {p.shots && p.shots.length > 0 && (
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11.5,
+                      textTransform: "uppercase",
+                      letterSpacing: ".14em",
+                      color: "var(--faint)",
+                      marginBottom: 14,
+                    }}
+                  >
+                    Screens
+                  </div>
+                  {(["desktop", "mobile"] as const).map((device) => {
+                    const list = p.shots!.filter((x) => x.device === device);
+                    if (list.length === 0) return null;
+                    return (
+                      <div
+                        key={device}
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: `repeat(auto-fill,minmax(${device === "desktop" ? 300 : 150}px,1fr))`,
+                          gap: 16,
+                          marginBottom: 16,
+                        }}
+                      >
+                        {list.map((x) => (
+                          <figure key={x.src} style={{ margin: 0 }}>
+                            <img
+                              src={x.src}
+                              alt={`${p.title} — ${x.caption}`}
+                              loading="lazy"
+                              style={{
+                                display: "block",
+                                width: "100%",
+                                height: "auto",
+                                borderRadius: device === "mobile" ? 18 : 12,
+                                border: "1px solid var(--line)",
+                                background: "var(--surf)",
+                              }}
+                            />
+                            <figcaption style={{ fontSize: 13, color: "var(--faint)", marginTop: 8 }}>
+                              {x.caption}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {p.tech.map((t) => (
                   <span

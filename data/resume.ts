@@ -40,6 +40,8 @@ export type Project = {
   tech: string[];
   github?: string;
   live?: string;
+  /** App screenshots shown in the case study on /projects */
+  shots?: { src: string; caption: string; device: "desktop" | "mobile" }[];
   /** true when this project is one of the three printed on the resume */
   onResume?: boolean;
 };
@@ -47,6 +49,183 @@ export type Project = {
 export const projects: Project[] = [
   {
     num: "01",
+    slug: "roledock",
+    year: "2026",
+    title: "RoleDock",
+    kind: "Personal project",
+    kicker: "Job-search tracker for phone and desktop · My own product",
+    img: "/roledock.png",
+    bare: true,
+    role: "Founder and sole engineer",
+    team: "Solo",
+    hard: "A private, offline-first job tracker that stays in sync across devices",
+    description:
+      "A job-hunt companion that tracks applications, keeps every document form-ready and reminds you before follow-ups slip — with your documents stored only on your own device.",
+    items: [
+      "Built an application pipeline with status stages, interview rounds, recruiter contacts, notes timeline, and source and job-ID auto-fill from LinkedIn, Naukri and Indeed links.",
+      "Shipped an on-device document vault with masked numbers, expiry reminders, and tools to crop, compress to a target size, convert and combine files into a PDF.",
+      "Added scheduled native notifications, PIN and biometric lock, screenshot blocking and one-file zip backup and restore.",
+      "Delivered one React codebase as an offline-capable PWA and a Capacitor Android app, with optional Supabase sync for applications and saved jobs.",
+    ],
+    shots: [
+      { src: "/roledock/d-today.png", caption: "Today — goal, interviews and reminders (desktop)", device: "desktop" },
+      { src: "/roledock/d-applications.png", caption: "Application pipeline (desktop)", device: "desktop" },
+      { src: "/roledock/d-detail.png", caption: "Application detail with interview rounds (desktop)", device: "desktop" },
+      { src: "/roledock/d-vault.png", caption: "Document vault (desktop)", device: "desktop" },
+      { src: "/roledock/m-today.png", caption: "Today", device: "mobile" },
+      { src: "/roledock/m-applications.png", caption: "Applications", device: "mobile" },
+      { src: "/roledock/m-detail.png", caption: "Interview rounds and timeline", device: "mobile" },
+      { src: "/roledock/m-saved.png", caption: "Saved for later", device: "mobile" },
+      { src: "/roledock/m-vault.png", caption: "Document vault", device: "mobile" },
+      { src: "/roledock/m-notes.png", caption: "Notes and reminders", device: "mobile" },
+    ],
+    tech: [
+      "React",
+      "TypeScript",
+      "Capacitor",
+      "IndexedDB",
+      "Supabase",
+      "PWA",
+    ],
+    // Repo is private — make it public and add the URL here.
+  },
+  {
+    num: "02",
+    slug: "ledgerx",
+    year: "2026",
+    title: "LedgerX",
+    kind: "Personal project",
+    kicker: "Offline GST billing & accounting desktop app · My own product",
+    img: "/ledgerx.png",
+    role: "Founder and sole engineer",
+    team: "Solo",
+    hard: "Double-entry books and GST returns that always reconcile, fully offline",
+    description:
+      "GST billing, inventory and accounting for Indian businesses — a desktop app that works without internet and keeps every company's books on the user's own computer.",
+    items: [
+      "Built GST sales and purchase invoicing with CGST/SGST vs IGST from place of supply, credit/debit notes, orders and customisable print, PDF and thermal bill formats.",
+      "Engineered true double-entry books on a Tally-style chart of accounts — every voucher must balance — with trial balance, P&L and balance sheet.",
+      "Generated GSTR-1 and GSTR-3B returns with CSV export, plus live inventory valued at weighted average cost.",
+      "Made the books tamper-evident: versioned bill alterations, an audit trail of every entry and login, and GSTIN check-digit validation.",
+    ],
+    tech: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "SQLite",
+      "Tailwind CSS",
+      "Vitest",
+    ],
+    // Repo is private — make it public and add the URL here.
+  },
+  {
+    num: "03",
+    slug: "huddle",
+    year: "2026",
+    title: "Huddle",
+    kind: "Personal project",
+    kicker: "Private, end-to-end encrypted messenger · My own product",
+    img: "/huddle-ios.png",
+    bare: true,
+    imgWide: "/huddle-ios-wide.png",
+    role: "Founder and sole engineer — Android, iOS and relay server",
+    team: "Solo",
+    hard: "A relay that, if breached or seized, holds nothing worth reading",
+    description:
+      "A messenger with no phone number and post-quantum end-to-end encryption, where the server only ever sees ciphertext and forgets each message once it's delivered.",
+    items: [
+      "Integrated the Signal Protocol via libsignal — PQXDH key agreement with Kyber-1024 and the Double Ratchet, so every message has its own key.",
+      "Built a Rust/Axum relay serving prekey bundles and per-device mailboxes that delete each message on acknowledgement.",
+      "Shipped native apps in Kotlin + Jetpack Compose and SwiftUI: chats, replies, reactions, read receipts, typing indicators, disappearing messages and 24-hour statuses.",
+      "Hardened the client with message padding, Argon2id + XChaCha20-Poly1305 encrypted backups, PIN lock with escalating lockout, screenshot protection and safety-number verification.",
+    ],
+    tech: [
+      "Rust",
+      "Axum",
+      "Kotlin",
+      "Jetpack Compose",
+      "SwiftUI",
+      "libsignal",
+    ],
+    // Repo is private — make it public and add the URL here.
+  },
+  {
+    num: "04",
+    slug: "cvora",
+    year: "2026",
+    title: "CVora",
+    kind: "Personal project",
+    kicker: "AI resume builder · My own product",
+    img: "/cvora.png",
+    role: "Founder and sole engineer",
+    team: "Solo",
+    hard: "PDF output that survives every ATS parser",
+    description:
+      "A resume builder with form-driven editing, AI job-tailoring, live preview and clean PDF export — built to be sold.",
+    items: [
+      "Architected a form-to-preview editor with live rendering across the whole document.",
+      "Built an AI rewrite pass that tailors bullets and keywords to a pasted job description.",
+      "Implemented ATS match scoring with keyword-coverage reporting and version history per rewrite.",
+      "Shipped pixel-accurate PDF export via Puppeteer.",
+    ],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "AI SDK",
+      "Puppeteer",
+      "Tailwind CSS",
+    ],
+    live: "https://cvora-phi.vercel.app/",
+    // TODO: paste the real repo URL — this project exists on GitHub.
+    // github: "https://github.com/Rishav-27/<cvora-repo>",
+  },
+  {
+    num: "05",
+    slug: "sk-enterprises",
+    year: "2026",
+    title: "SK Enterprises",
+    kind: "Personal project",
+    kicker: "Manufacturing & trading company site · Family business",
+    img: "/skenterprises.png",
+    role: "Sole engineer — full stack",
+    team: "Solo",
+    hard: "Making a manufacturing and trading business feel credible online, fast",
+    description:
+      "A marketing site for our family's manufacturing and trading business, built to give the company a fast, professional web presence and a clear way for buyers to get in touch.",
+    items: [
+      "Built a Next.js site with product and catalog sections for the company's manufacturing and trading lines.",
+      "Implemented enquiry and contact forms with React Hook Form and Zod validation.",
+      "Engineered scroll-driven animation and page transitions with GSAP and Framer Motion.",
+      "Shipped smooth-scroll and carousel-based product showcases.",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP"],
+    live: "https://skenterprises-g2k2z0ru9-rishav-kumars-projects-f6216bfd.vercel.app/",
+    // TODO: paste the real repo URL — this project exists on GitHub.
+    // github: "https://github.com/Rishav-27/<sk-enterprises-repo>",
+  },
+  {
+    num: "06",
+    slug: "forge",
+    year: "2026",
+    title: "Forge",
+    kind: "In progress",
+    kicker: "Gym & workout app",
+    role: "Sole engineer — full stack",
+    team: "Solo",
+    hard: "Logging a set in under three taps, mid-workout",
+    description:
+      "Workout plans, an exercise library and progress tracking, built so logging a set takes seconds between reps.",
+    items: [
+      "Implemented auth and profile setup on Supabase.",
+      "Building a workout plan builder and a structured exercise library.",
+      "Designed a fast set-logging flow for one-handed use.",
+      "Shipping progress tracking across weeks.",
+    ],
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+  },
+  {
+    num: "07",
     slug: "aeoix",
     year: "2026",
     title: "Aeoix",
@@ -76,7 +255,7 @@ export const projects: Project[] = [
     onResume: true,
   },
   {
-    num: "02",
+    num: "08",
     slug: "linkova",
     year: "2026",
     title: "Linkova",
@@ -108,99 +287,7 @@ export const projects: Project[] = [
     onResume: true,
   },
   {
-    num: "03",
-    slug: "cvora",
-    year: "2026",
-    title: "CVora",
-    kind: "Personal project",
-    kicker: "AI resume builder · My own product",
-    img: "/cvora.png",
-    role: "Founder and sole engineer",
-    team: "Solo",
-    hard: "PDF output that survives every ATS parser",
-    description:
-      "A resume builder with form-driven editing, AI job-tailoring, live preview and clean PDF export — built to be sold.",
-    items: [
-      "Architected a form-to-preview editor with live rendering across the whole document.",
-      "Built an AI rewrite pass that tailors bullets and keywords to a pasted job description.",
-      "Implemented ATS match scoring with keyword-coverage reporting and version history per rewrite.",
-      "Shipped pixel-accurate PDF export via Puppeteer.",
-    ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "AI SDK",
-      "Puppeteer",
-      "Tailwind CSS",
-    ],
-    live: "https://cvora-phi.vercel.app/",
-    // TODO: paste the real repo URL — this project exists on GitHub.
-    // github: "https://github.com/Rishav-27/<cvora-repo>",
-    onResume: true,
-  },
-  {
-    num: "04",
-    slug: "huddle",
-    year: "2026",
-    title: "Huddle",
-    kind: "Personal project",
-    kicker: "Private, end-to-end encrypted messenger · My own product",
-    img: "/huddle-ios.png",
-    bare: true,
-    imgWide: "/huddle-ios-wide.png",
-    role: "Founder and sole engineer — Android, iOS and relay server",
-    team: "Solo",
-    hard: "A relay that, if breached or seized, holds nothing worth reading",
-    description:
-      "A messenger with no phone number and post-quantum end-to-end encryption, where the server only ever sees ciphertext and forgets each message once it's delivered.",
-    items: [
-      "Integrated the Signal Protocol via libsignal — PQXDH key agreement with Kyber-1024 and the Double Ratchet, so every message has its own key.",
-      "Built a Rust/Axum relay serving prekey bundles and per-device mailboxes that delete each message on acknowledgement.",
-      "Shipped native apps in Kotlin + Jetpack Compose and SwiftUI: chats, replies, reactions, read receipts, typing indicators, disappearing messages and 24-hour statuses.",
-      "Hardened the client with message padding, Argon2id + XChaCha20-Poly1305 encrypted backups, PIN lock with escalating lockout, screenshot protection and safety-number verification.",
-    ],
-    tech: [
-      "Rust",
-      "Axum",
-      "Kotlin",
-      "Jetpack Compose",
-      "SwiftUI",
-      "libsignal",
-    ],
-    // Repo is private — make it public and add the URL here.
-  },
-  {
-    num: "05",
-    slug: "ledgerx",
-    year: "2026",
-    title: "LedgerX",
-    kind: "Personal project",
-    kicker: "Offline GST billing & accounting desktop app · My own product",
-    img: "/ledgerx.png",
-    role: "Founder and sole engineer",
-    team: "Solo",
-    hard: "Double-entry books and GST returns that always reconcile, fully offline",
-    description:
-      "GST billing, inventory and accounting for Indian businesses — a desktop app that works without internet and keeps every company's books on the user's own computer.",
-    items: [
-      "Built GST sales and purchase invoicing with CGST/SGST vs IGST from place of supply, credit/debit notes, orders and customisable print, PDF and thermal bill formats.",
-      "Engineered true double-entry books on a Tally-style chart of accounts — every voucher must balance — with trial balance, P&L and balance sheet.",
-      "Generated GSTR-1 and GSTR-3B returns with CSV export, plus live inventory valued at weighted average cost.",
-      "Made the books tamper-evident: versioned bill alterations, an audit trail of every entry and login, and GSTIN check-digit validation.",
-    ],
-    tech: [
-      "Electron",
-      "React",
-      "TypeScript",
-      "SQLite",
-      "Tailwind CSS",
-      "Vitest",
-    ],
-    // Repo is private — make it public and add the URL here.
-  },
-  {
-    num: "06",
+    num: "09",
     slug: "tradeverse",
     year: "2025",
     title: "TradeVerse",
@@ -222,7 +309,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "07",
+    num: "10",
     slug: "real-estate-platform",
     year: "2025",
     title: "Real Estate Platform",
@@ -244,31 +331,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "08",
-    slug: "sk-enterprises",
-    year: "2026",
-    title: "SK Enterprises",
-    kind: "Personal project",
-    kicker: "Manufacturing & trading company site · Family business",
-    img: "/skenterprises.png",
-    role: "Sole engineer — full stack",
-    team: "Solo",
-    hard: "Making a manufacturing and trading business feel credible online, fast",
-    description:
-      "A marketing site for our family's manufacturing and trading business, built to give the company a fast, professional web presence and a clear way for buyers to get in touch.",
-    items: [
-      "Built a Next.js site with product and catalog sections for the company's manufacturing and trading lines.",
-      "Implemented enquiry and contact forms with React Hook Form and Zod validation.",
-      "Engineered scroll-driven animation and page transitions with GSAP and Framer Motion.",
-      "Shipped smooth-scroll and carousel-based product showcases.",
-    ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP"],
-    live: "https://skenterprises-g2k2z0ru9-rishav-kumars-projects-f6216bfd.vercel.app/",
-    // TODO: paste the real repo URL — this project exists on GitHub.
-    // github: "https://github.com/Rishav-27/<sk-enterprises-repo>",
-  },
-  {
-    num: "09",
+    num: "11",
     slug: "multilangdetect",
     year: "2024",
     title: "MultiLangDetect",
@@ -288,26 +351,6 @@ export const projects: Project[] = [
     tech: ["Python", "TensorFlow", "Keras", "Flask"],
     // Not on GitHub yet — push it and add the URL here.
   },
-  {
-    num: "10",
-    slug: "forge",
-    year: "2026",
-    title: "Forge",
-    kind: "In progress",
-    kicker: "Gym & workout app",
-    role: "Sole engineer — full stack",
-    team: "Solo",
-    hard: "Logging a set in under three taps, mid-workout",
-    description:
-      "Workout plans, an exercise library and progress tracking, built so logging a set takes seconds between reps.",
-    items: [
-      "Implemented auth and profile setup on Supabase.",
-      "Building a workout plan builder and a structured exercise library.",
-      "Designed a fast set-logging flow for one-handed use.",
-      "Shipping progress tracking across weeks.",
-    ],
-    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-  },
 ];
 
 export const jobs = [
@@ -317,12 +360,13 @@ export const jobs = [
     company: "WebbyWolf Innovations",
     url: "https://www.webbywolf.com/",
     items: [
-      "Engineered frontend architecture for two production SaaS products, Aeoix and Linkova, in Next.js App Router, React, TypeScript and Tailwind CSS.",
-      "Built a reusable component library adopted across both products, cutting build time for new features by approximately 30%.",
-      "Integrated REST APIs and Supabase for authentication, session handling and real-time data; drove API contract design and PostgreSQL schema modelling.",
-      "Applied SSR, route-level caching and bundle optimization to cut load times and lift Core Web Vitals and organic indexing.",
-      "Shipped in two-week Agile sprints with peer code review, Git/GitHub branching and continuous deployment on Vercel.",
-      "Built internal automation and proof-of-concept tooling integrating third-party and generative AI APIs for content generation and publisher matching.",
+      "Engineered the frontend architecture for two production SaaS products (Aeoix and Linkova) utilizing Next.js App Router, React, TypeScript, and Tailwind CSS.",
+      "Architected a scalable component library adopted across both platforms, accelerating feature delivery and reducing build times by over 30%.",
+      "Designed and integrated REST APIs with Supabase for secure authentication, robust session handling, and real-time data synchronization.",
+      "Spearheaded PostgreSQL schema modeling and API contract design to ensure efficient, scalable backend-to-frontend data flows.",
+      "Implemented advanced SSR, route-level caching, and bundle optimization, significantly elevating Core Web Vitals and organic search indexing.",
+      "Developed internal automation tooling and proof-of-concepts integrating generative AI APIs for dynamic content generation and publisher matching.",
+      "Shipped continuously in two-week Agile sprints, maintaining high code quality through rigorous peer reviews and CI/CD on Vercel.",
     ],
   },
   {
@@ -331,10 +375,9 @@ export const jobs = [
     company: "MetaCrafters",
     url: "https://www.metacrafters.io/",
     items: [
-      "Authored, tested and deployed Solidity smart contracts on EVM test networks.",
-      "Built React dApp frontends reading and writing on-chain state through wallet-connected clients.",
-      "Earned a $175 merit scholarship on completing the blockchain engineering track.",
-      "Selected into the MetaCrafters talent collective.",
+      "Authored, rigorously tested, and deployed Solidity smart contracts across EVM test networks.",
+      "Developed responsive React dApp frontends, enabling seamless read/write interactions with on-chain state via wallet-connected clients.",
+      "Awarded a merit scholarship for excellence in the blockchain engineering track and subsequently selected into the MetaCrafters talent collective.",
     ],
   },
 ];
@@ -347,13 +390,13 @@ export const education = [
     duration: "2021 — 2025",
   },
   {
-    level: "Class XII (PCM)",
+    level: "Higher Secondary Education (Class XII, PCM)",
     institution: "Valley View School",
     location: "Jamshedpur",
     duration: "2020 — 2021",
   },
   {
-    level: "Class X",
+    level: "Secondary Education (Class X)",
     institution: "Ramakrishna Mission English School",
     location: "Jamshedpur",
     duration: "2018 — 2019",

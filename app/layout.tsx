@@ -21,17 +21,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-      <head>
-        {/* apply the saved theme before paint so there is no flash */}
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('rk-portfolio-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}`,
-          }}
-        />
-      </head>
       <body>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`try{var t=localStorage.getItem('rk-portfolio-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}`}
+        </Script>
         <SmoothScroll />
         {children}
       </body>

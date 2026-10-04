@@ -57,7 +57,6 @@ a:hover{color:var(--dim);}
 
 ::-webkit-scrollbar{display:none;}
 *{-ms-overflow-style:none;scrollbar-width:none;}
-
 /* top nav links */
 [data-navlink]{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--dim);white-space:nowrap;transition:color .15s,background-color .15s;}
 [data-navlink]:hover{color:var(--fg);}

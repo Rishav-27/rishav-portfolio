@@ -7,7 +7,7 @@ const heading = { fontSize: 14, fontWeight: 600, textTransform: "uppercase", let
 export default function Path() {
   return (
     <Section id="experience">
-      <div data-reveal style={eyebrow}>04 — PATH</div>
+      <div data-reveal style={eyebrow}>03 — PATH</div>
       <h2 data-reveal style={{ ...h2, margin: "0 0 clamp(40px,6vw,72px)" }}>Experience &amp; education.</h2>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(56px,8vw,96px)" }}>

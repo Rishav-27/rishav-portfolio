@@ -7,7 +7,7 @@ export default function HowIShowUp() {
     <Section id="offline">
       <div style={{ display: "grid", gridTemplateColumns: "repeat(var(--aboutcols),minmax(0,1fr))", gap: "clamp(32px,6vw,72px)", alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-          <div data-reveal style={eyebrow}>08 — HOW I SHOW UP</div>
+          <div data-reveal style={eyebrow}>07 — HOW I SHOW UP</div>
           <h2 data-reveal style={{ ...h2, margin: "0 0 14px", maxWidth: "18ch" }}>Always learning. Easy to work with.</h2>
           <p data-reveal style={{ fontSize: "clamp(17px,2.2vw,21px)", lineHeight: 1.6, margin: 0, textWrap: "pretty" }}>
             I pick up new technology fast and I enjoy it. Hand me a stack I haven&apos;t used and I&apos;ll be productive in it inside a week — that&apos;s how I got to Supabase, to WebSockets, to server-side rendering.
