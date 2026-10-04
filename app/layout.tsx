@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Atmosphere from "../components/Atmosphere";
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
@@ -25,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Script id="theme-init" strategy="beforeInteractive">
           {`try{var t=localStorage.getItem('rk-portfolio-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}`}
         </Script>
+        <Atmosphere />
         <SmoothScroll />
         {children}
       </body>

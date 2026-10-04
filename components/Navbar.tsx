@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import { motion } from "framer-motion";
 import { header } from "../data/resume";
 
 const links = [
@@ -22,7 +22,15 @@ const sheet = {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Highlight the link for whichever section is crossing the middle of the viewport.
   useEffect(() => {
@@ -40,17 +48,24 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={false}
+      animate={{
+        width: scrolled ? "min(calc(100% - 32px), 900px)" : "100%",
+        top: scrolled ? 16 : 0,
+        borderRadius: scrolled ? 999 : 0,
+        background: scrolled ? "var(--navbg)" : "transparent",
+        border: scrolled ? "1px solid var(--line)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.08)" : "0 0 0 rgba(0,0,0,0)",
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        left: "50%",
+        x: "-50%",
         zIndex: 60,
-        background: "var(--navbg)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
-        borderBottom: "1px solid var(--line)",
       }}
     >
       <div
@@ -58,11 +73,12 @@ export default function Navbar() {
           maxWidth: 1280,
           margin: "0 auto",
           padding: "0 var(--pad)",
-          height: 66,
+          height: scrolled ? 60 : 66,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: 16,
+          transition: "height 0.3s ease",
         }}
       >
         <a
@@ -101,7 +117,12 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div
+        <motion.div
+          animate={{
+            background: scrolled ? "transparent" : "var(--navbg)",
+            borderColor: scrolled ? "transparent" : "var(--line)",
+          }}
+          transition={{ duration: 0.3 }}
           style={{
             display: "var(--navcore)",
             alignItems: "center",
@@ -117,14 +138,27 @@ export default function Navbar() {
               href={`#${l.id}`}
               data-navlink
               aria-current={active === l.id ? "true" : undefined}
+              style={{ position: "relative" }}
             >
+              {active === l.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "var(--surf)",
+                    borderRadius: 999,
+                    zIndex: -1,
+                  }}
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                />
+              )}
               {l.label}
             </a>
           ))}
-        </div>
+        </motion.div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <ThemeToggle />
           <a
             href={`mailto:${header.email}`}
             style={{
@@ -237,6 +271,6 @@ export default function Navbar() {
           </a>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div
       style={{
-        background: "var(--bg)",
+        background: "transparent",
         color: "var(--fg)",
         minHeight: "100vh",
         position: "relative",
