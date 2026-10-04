@@ -54,7 +54,7 @@ export default function GithubActivity() {
 
   return (
     <section id="github" style={{ padding: "var(--sec) var(--pad)", maxWidth: 1280, margin: "0 auto", borderTop: "1px solid var(--line)" }}>
-      <div data-reveal style={eyebrow}>06 — GITHUB ACTIVITY</div>
+      <div data-reveal style={eyebrow}>05 — GITHUB ACTIVITY</div>
       <h2 data-reveal style={{ ...h2, margin: "0 0 clamp(28px,4vw,40px)", maxWidth: "20ch" }}>
         Commits, not just claims.
       </h2>

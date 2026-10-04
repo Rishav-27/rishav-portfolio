@@ -3,7 +3,6 @@ import ScrollFX from "../components/ScrollFX";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Work from "../components/Work";
-import Building from "../components/Building";
 import Path from "../components/Path";
 import Toolkit from "../components/Toolkit";
 import GithubActivity from "../components/GithubActivity";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <div
       style={{
-        background: "var(--bg)",
+        background: "transparent",
         color: "var(--fg)",
         minHeight: "100vh",
         position: "relative",
@@ -28,7 +27,6 @@ export default function Home() {
         <Hero />
         <About />
         <Work />
-        <Building />
         <Path />
         <Toolkit />
         <GithubActivity />

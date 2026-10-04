@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <footer id="contact" style={{ padding: "var(--sec) var(--pad) 48px", borderTop: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>09 — CONTACT</div>
+        <div data-reveal style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, color: "var(--faint)", letterSpacing: ".14em", marginBottom: 22 }}>08 — CONTACT</div>
         <h2 data-reveal style={{ fontSize: "clamp(36px,10vw,88px)", lineHeight: .98, fontWeight: 800, letterSpacing: "-.045em", margin: "0 0 32px", maxWidth: "14ch", textWrap: "balance" }}>
           Let&apos;s build something fast.
         </h2>
@@ -14,7 +14,6 @@ export default function Contact() {
 
         <div data-reveal style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: "clamp(56px,8vw,96px)" }}>
           <a href={`mailto:${header.email}`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, background: "var(--btn-bg)", color: "var(--btn-fg)", fontWeight: 600, fontSize: 16 }}>{header.email}</a>
-          <a href={header.phoneHref} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 16 }}>{header.phone}</a>
           <a href={header.resumePdf} download style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 56, padding: "0 30px", borderRadius: 999, border: "1px solid var(--line2)", fontWeight: 600, fontSize: 16 }}>Download résumé (PDF)</a>
         </div>
 

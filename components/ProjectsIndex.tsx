@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-import { projects, header, type Project } from "../data/resume";
+import { projects, header, counts, type Project } from "../data/resume";
 
 type Key = "all" | "team" | "personal" | "wip";
 const KINDS: Record<Exclude<Key, "all">, Project["kind"]> = {
@@ -13,16 +13,6 @@ const KINDS: Record<Exclude<Key, "all">, Project["kind"]> = {
   wip: "In progress",
 };
 
-const navCore = {
-  display: "var(--navcore)",
-  alignItems: "center",
-  padding: "8px 13px",
-  borderRadius: 999,
-  fontSize: 14,
-  fontWeight: 500,
-  color: "var(--dim)",
-} as const;
-const navExtra = { ...navCore, display: "var(--navlinks)" } as const;
 const navSheet = {
   padding: "14px 4px",
   fontSize: 17,
@@ -127,31 +117,32 @@ export default function ProjectsIndex() {
             </span>
           </Link>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Link href="/#about" style={navCore}>
-              About
-            </Link>
-            <Link href="/#work" style={navCore}>
-              Work
-            </Link>
-            <Link href="/#experience" style={navCore}>
-              Experience
-            </Link>
-            <Link href="/projects" style={navCore}>
-              Projects
-            </Link>
-            <Link href="/#building" style={navExtra}>
-              Building
-            </Link>
-            <Link href="/#skills" style={navExtra}>
-              Skills
-            </Link>
-            <Link href="/#github" style={navExtra}>
-              GitHub
-            </Link>
-            <Link href="/#contact" style={navExtra}>
-              Contact
-            </Link>
+          <div
+            style={{
+              display: "var(--navcore)",
+              alignItems: "center",
+              gap: 2,
+              padding: 4,
+              borderRadius: 999,
+              border: "1px solid var(--line)",
+            }}
+          >
+            {[
+              ["/#about", "About"],
+              ["/#work", "Work"],
+              ["/projects", "Projects"],
+              ["/#skills", "Skills"],
+              ["/#contact", "Contact"],
+            ].map(([href, label]) => (
+              <Link
+                key={href}
+                href={href}
+                data-navlink
+                aria-current={href === "/projects" ? "true" : undefined}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -295,8 +286,9 @@ export default function ProjectsIndex() {
             textWrap: "pretty",
           }}
         >
-          Two products shipped with the WebbyWolf team, three I built on my own,
-          and four in progress right now. Each one lists what I actually did.
+          {counts.team} products shipped with the WebbyWolf team, {counts.personal} I
+          built on my own, and {counts.wip} in progress right now. Each one lists
+          what I actually did.
         </p>
         <p
           data-reveal
@@ -350,7 +342,9 @@ export default function ProjectsIndex() {
         {shown.map((p) => (
           <article
             key={p.num}
+            id={p.slug}
             style={{
+              scrollMarginTop: 90,
               border: "1px solid var(--line)",
               borderRadius: 24,
               overflow: "hidden",
@@ -359,11 +353,12 @@ export default function ProjectsIndex() {
             {p.img ? (
               <div
                 style={{
-                  aspectRatio: "16/9",
-                  backgroundColor: "var(--surf)",
-                  backgroundImage: `url(${p.img})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
+                  aspectRatio: p.bare ? "21/9" : "16/9",
+                  backgroundColor: p.bare ? undefined : "var(--surf)",
+                  backgroundImage: `url(${p.imgWide ?? p.img})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: p.bare ? "auto 90%" : "cover",
+                  backgroundPosition: p.bare ? "center" : "top center",
                   borderBottom: "1px solid var(--line)",
                 }}
               />
@@ -595,6 +590,58 @@ export default function ProjectsIndex() {
                   ))}
                 </ul>
               </div>
+
+              {p.shots && p.shots.length > 0 && (
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11.5,
+                      textTransform: "uppercase",
+                      letterSpacing: ".14em",
+                      color: "var(--faint)",
+                      marginBottom: 14,
+                    }}
+                  >
+                    Screens
+                  </div>
+                  {(["desktop", "mobile"] as const).map((device) => {
+                    const list = p.shots!.filter((x) => x.device === device);
+                    if (list.length === 0) return null;
+                    return (
+                      <div
+                        key={device}
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: `repeat(auto-fill,minmax(${device === "desktop" ? 300 : 150}px,1fr))`,
+                          gap: 16,
+                          marginBottom: 16,
+                        }}
+                      >
+                        {list.map((x) => (
+                          <figure key={x.src} style={{ margin: 0 }}>
+                            <img
+                              src={x.src}
+                              alt={`${p.title} — ${x.caption}`}
+                              loading="lazy"
+                              style={{
+                                display: "block",
+                                width: "100%",
+                                height: "auto",
+                                borderRadius: device === "mobile" ? 18 : 12,
+                                border: "1px solid var(--line)",
+                                background: "var(--surf)",
+                              }}
+                            />
+                            <figcaption style={{ fontSize: 13, color: "var(--faint)", marginTop: 8 }}>
+                              {x.caption}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {p.tech.map((t) => (

@@ -41,10 +41,6 @@ export default function Hero() {
         <div style={{ paddingRight: 20 }}><div style={label}>Currently</div><div style={val}>SWE @ WebbyWolf</div></div>
         <div style={{ paddingRight: 20 }}><div style={label}>Based in</div><div style={val}>{header.location}</div></div>
         <div style={{ paddingRight: 20 }}><div style={label}>Focus</div><div style={val}>Next.js · Node · Postgres</div></div>
-        <div style={{ paddingRight: 20 }}>
-          <div style={label}>Phone</div>
-          <a href={header.phoneHref} style={{ ...val, ...underline }}>{header.phone}</a>
-        </div>
         <div>
           <div style={label}>Links</div>
           <div style={{ display: "flex", gap: 14, ...val }}>

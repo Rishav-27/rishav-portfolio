@@ -1,20 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { header } from "../data/resume";
 
-const core = {
-  display: "var(--navcore)",
-  alignItems: "center",
-  padding: "8px 13px",
-  borderRadius: 999,
-  fontSize: 14,
-  fontWeight: 500,
-  color: "var(--dim)",
-} as const;
-const extra = { ...core, display: "var(--navlinks)" } as const;
+const links = [
+  { id: "about", label: "About" },
+  { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
 const sheet = {
   padding: "14px 4px",
   fontSize: 17,
@@ -24,20 +21,51 @@ const sheet = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
   const close = () => setOpen(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Highlight the link for whichever section is crossing the middle of the viewport.
+  useEffect(() => {
+    const els = links
+      .map((l) => document.getElementById(l.id))
+      .filter((el): el is HTMLElement => !!el);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <nav
+    <motion.nav
+      initial={false}
+      animate={{
+        width: scrolled ? "min(calc(100% - 32px), 900px)" : "100%",
+        top: scrolled ? 16 : 0,
+        borderRadius: scrolled ? 999 : 0,
+        background: scrolled ? "var(--navbg)" : "transparent",
+        border: scrolled ? "1px solid var(--line)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.08)" : "0 0 0 rgba(0,0,0,0)",
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        left: "50%",
+        x: "-50%",
         zIndex: 60,
-        background: "var(--navbg)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
-        borderBottom: "1px solid var(--line)",
       }}
     >
       <div
@@ -45,11 +73,12 @@ export default function Navbar() {
           maxWidth: 1280,
           margin: "0 auto",
           padding: "0 var(--pad)",
-          height: 66,
+          height: scrolled ? 60 : 66,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: 16,
+          transition: "height 0.3s ease",
         }}
       >
         <a
@@ -88,36 +117,48 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <a href="#about" style={core}>
-            About
-          </a>
-          <a href="#work" style={core}>
-            Work
-          </a>
-          <a href="#experience" style={core}>
-            Experience
-          </a>
-          <Link href="/projects" style={core}>
-            Projects
-          </Link>
-          <a href="#building" style={extra}>
-            Building
-          </a>
-          <a href="#skills" style={extra}>
-            Skills
-          </a>
-          <a href="#github" style={extra}>
-            GitHub
-          </a>
-          <a href="#contact" style={extra}>
-            Contact
-          </a>
-        </div>
+        <motion.div
+          animate={{
+            background: scrolled ? "transparent" : "var(--navbg)",
+            borderColor: scrolled ? "transparent" : "var(--line)",
+          }}
+          transition={{ duration: 0.3 }}
+          style={{
+            display: "var(--navcore)",
+            alignItems: "center",
+            gap: 2,
+            padding: 4,
+            borderRadius: 999,
+            border: "1px solid var(--line)",
+          }}
+        >
+          {links.map((l) => (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              data-navlink
+              aria-current={active === l.id ? "true" : undefined}
+              style={{ position: "relative" }}
+            >
+              {active === l.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "var(--surf)",
+                    borderRadius: 999,
+                    zIndex: -1,
+                  }}
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                />
+              )}
+              {l.label}
+            </a>
+          ))}
+        </motion.div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          {/* <a href={header.phoneHref} style={{ display: "var(--navlinks)", alignItems: "center", height: 40, padding: "0 12px", borderRadius: 999, fontSize: 13.5, fontWeight: 500, color: "var(--dim)", whiteSpace: "nowrap" }}>{header.phone}</a> */}
-          <ThemeToggle />
           <a
             href={`mailto:${header.email}`}
             style={{
@@ -193,7 +234,7 @@ export default function Navbar() {
           <a href="#experience" onClick={close} style={sheet}>
             Experience
           </a>
-          <Link href="/projects" style={sheet}>
+          <Link href="/projects" onClick={close} style={sheet}>
             All projects
           </Link>
           <a href="#skills" onClick={close} style={sheet}>
@@ -230,6 +271,6 @@ export default function Navbar() {
           </a>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

@@ -120,7 +120,7 @@ export default function About() {
               CVora
             </strong>
             , an AI resume product of my own that&apos;s live today — with{" "}
-            {building.length} more MVPs on the bench. Day-to-day I ship frontend
+            {building.length === 1 ? "another MVP" : `${building.length} more MVPs`} on the bench. Day-to-day I ship frontend
             architecture on live SaaS at WebbyWolf.
           </p>
 

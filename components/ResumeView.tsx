@@ -367,7 +367,6 @@ export default function ResumeView() {
             ["Role", header.resumeTitle],
             ["Based in", header.location],
             ["Availability", header.openTo],
-            ["Phone", header.phone],
           ].map(([k, v]) => (
             <div key={k} style={{ paddingRight: 20 }}>
               <div style={{ ...mono, fontSize: 12, marginBottom: 8 }}>{k}</div>
@@ -501,7 +500,7 @@ export default function ResumeView() {
             ))}
           </div>
           <p style={{ fontSize: 15.5, lineHeight: 1.6, color: "var(--dim)", margin: "22px 0 0", maxWidth: "64ch", textWrap: "pretty" }}>
-            Also built: TradeVerse, a Real Estate marketplace, MultiLangDetect and the SK Enterprises site —{" "}
+            Also built: Huddle, an end-to-end encrypted messenger; LedgerX, an offline GST accounting app; RoleDock, a job-search tracker; TradeVerse, a Real Estate marketplace, MultiLangDetect and the SK Enterprises site —{" "}
             <Link href="/projects" style={{ textDecoration: "underline", textUnderlineOffset: 4, textDecorationColor: "var(--line2)" }}>all {projects.length} projects are written up in full</Link>.
           </p>
         </section>
@@ -513,8 +512,7 @@ export default function ResumeView() {
               <div key={e.level} style={{ borderTop: "1px solid var(--line)", paddingTop: 18 }}>
                 <div style={{ ...mono, fontSize: 12.5, marginBottom: 10 }}>{e.duration}</div>
                 <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 4px", textWrap: "pretty" }}>{e.level}</h3>
-                <div style={{ fontSize: 15, color: "var(--dim)", marginBottom: 12 }}>{e.institution} · {e.location}</div>
-                <div style={{ display: "inline-block", fontFamily: "var(--font-geist-mono), monospace", fontSize: 13, padding: "5px 11px", borderRadius: 8, background: "var(--surf)", border: "1px solid var(--line)", color: "var(--dim)" }}>{e.score}</div>
+                <div style={{ fontSize: 15, color: "var(--dim)" }}>{e.institution} · {e.location}</div>
               </div>
             ))}
           </div>

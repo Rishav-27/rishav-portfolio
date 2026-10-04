@@ -38,7 +38,7 @@
 @media (min-width:1000px){ :root{ --pad:56px; --sec:140px; --projdir:row; --projdir-r:row-reverse; } }
 @media (min-width:1180px){ :root{ --navlinks:flex; --menubtn:none; } }
 
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);}
+html,body{margin:0;padding:0;background:transparent;color:var(--fg);}
 body{font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 *{box-sizing:border-box;}
 a{color:var(--fg);text-decoration:none;}
@@ -50,7 +50,19 @@ a:hover{color:var(--dim);}
 [data-projects] > *:nth-child(even){flex-direction:var(--projdir-r);}
 
 @keyframes om-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[data-marquee]:hover [data-marquee-row]{animation-play-state:paused!important;}
+[data-marquee-word]{transition:color .2s,opacity .2s;}
+[data-marquee-word]:hover{color:var(--fg)!important;opacity:1!important;}
 @keyframes om-pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 ::-webkit-scrollbar{display:none;}
 *{-ms-overflow-style:none;scrollbar-width:none;}
+/* top nav links */
+[data-navlink]{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--dim);white-space:nowrap;transition:color .15s;}
+[data-navlink]:hover{color:var(--fg);}
+[data-navlink][aria-current="true"]{color:var(--fg);}
+
+/* theme switch: circular reveal from the toggle (see ThemeToggle) */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal;}
+::view-transition-new(root){z-index:2;}
+::view-transition-old(root){z-index:1;}
