@@ -1,5 +1,6 @@
-// TODO: set NEXT_PUBLIC_SITE_URL once the production domain is chosen.
-const url = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com"
+// Canonical production domain. Canonicals, the sitemap and structured data all use it;
+// NEXT_PUBLIC_SITE_URL can override it (e.g. for a preview deployment).
+const url = (process.env.NEXT_PUBLIC_SITE_URL || "https://rishavdev.in").replace(/\/$/, "")
 
 export const siteConfig = {
   url,
@@ -19,7 +20,12 @@ export const siteConfig = {
     "Supabase",
     "WebbyWolf",
     "Software Engineer Portfolio",
+    "Rishav Kumar Developer",
+    "Rishav Kumar Jamshedpur",
+    "Rishav Kumar Portfolio",
   ],
+  jobTitle: "Full-Stack Software Engineer",
+  location: "Jamshedpur, Jharkhand, India",
   links: {
     linkedin: "https://www.linkedin.com/in/rishav27/",
     github: "https://github.com/Rishav-27",

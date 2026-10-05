@@ -4,13 +4,13 @@
 
 ### Full-stack engineer · Next.js · Node · Postgres
 
-[![Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-0ea5e9?style=for-the-badge&logoColor=white)](https://rishav-portfolio-wine.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-0ea5e9?style=for-the-badge&logoColor=white)](https://rishavdev.in/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rishav-27)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rishav27/)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rishav9707@gmail.com)
 [![Open to Work](https://img.shields.io/badge/Open_to_Work-Full--time_/_Remote-22c55e?style=for-the-badge)](mailto:rishav9707@gmail.com)
 
-**[rishav-portfolio-wine.vercel.app](https://rishav-portfolio-wine.vercel.app/)** · Jamshedpur, Jharkhand
+**[rishavdev.in](https://rishavdev.in/)** · Jamshedpur, Jharkhand
 
 </div>
 
@@ -38,7 +38,7 @@ Built with **Next.js**, **TypeScript**, and a custom design system — no templa
 
 Recently shipped: **Huddle** · **LedgerX** · **RoleDock** · **CVora** — currently building: **Forge**
 
-→ Full write-ups live on the [portfolio](https://rishav-portfolio-wine.vercel.app/#work)
+→ Full write-ups live on the [portfolio](https://rishavdev.in/#work)
 
 ---
 
@@ -76,7 +76,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Open to **full-time / remote** roles — frontend, backend, or the whole stack.
 
-- Portfolio → [rishav-portfolio-wine.vercel.app](https://rishav-portfolio-wine.vercel.app/)
+- Portfolio → [rishavdev.in](https://rishavdev.in/)
 - Email → [rishav9707@gmail.com](mailto:rishav9707@gmail.com)
 - GitHub → [github.com/Rishav-27](https://github.com/Rishav-27)
 - LinkedIn → [linkedin.com/in/rishav27](https://www.linkedin.com/in/rishav27/)

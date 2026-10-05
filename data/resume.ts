@@ -6,7 +6,7 @@ export const header = {
   linkedin: "https://www.linkedin.com/in/rishav27/",
   github: "https://github.com/Rishav-27",
   instagram: "https://www.instagram.com/1227_rishi.k",
-  portfolio: "https://rishav-portfolio-wine.vercel.app/",
+  portfolio: "https://rishavdev.in/",
   location: "Jamshedpur, Jharkhand",
   openTo: "Open to full-time / remote · open to relocate",
   // Drop the exported PDFs into /public with these filenames so the

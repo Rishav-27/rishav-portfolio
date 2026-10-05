@@ -64,8 +64,9 @@ export default function Navbar() {
         left: "50%",
         x: "-50%",
         zIndex: 60,
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
+        // Blur only once it becomes a floating pill; at the top it would paint a faint band over the hero.
+        backdropFilter: scrolled ? "blur(18px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(18px)" : "none",
       }}
     >
       <div
@@ -107,13 +108,21 @@ export default function Navbar() {
           />
           <span
             style={{
-              fontWeight: 700,
-              fontSize: 17,
-              letterSpacing: "-.02em",
+              display: "flex",
+              flexDirection: "column",
+              lineHeight: 1.15,
               whiteSpace: "nowrap",
             }}
           >
-            Rishav<span style={{ color: "var(--dim)" }}>.dev</span>
+            <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: "-.02em" }}>
+              {header.name}
+            </span>
+            <span
+              style={{ fontWeight: 500, fontSize: 11, color: "var(--dim)" }}
+              className="navrole"
+            >
+              {header.title}
+            </span>
           </span>
         </a>
 
