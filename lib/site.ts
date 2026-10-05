@@ -1,6 +1,6 @@
-// Set NEXT_PUBLIC_SITE_URL to the custom domain once you have one; until then
-// canonicals, the sitemap and structured data point at the live Vercel URL.
-const url = (process.env.NEXT_PUBLIC_SITE_URL || "https://rishav-portfolio-wine.vercel.app").replace(/\/$/, "")
+// Canonical production domain. Canonicals, the sitemap and structured data all use it;
+// NEXT_PUBLIC_SITE_URL can override it (e.g. for a preview deployment).
+const url = (process.env.NEXT_PUBLIC_SITE_URL || "https://rishavdev.in").replace(/\/$/, "")
 
 export const siteConfig = {
   url,
