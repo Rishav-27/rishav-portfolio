@@ -64,8 +64,9 @@ export default function Navbar() {
         left: "50%",
         x: "-50%",
         zIndex: 60,
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
+        // Blur only once it becomes a floating pill; at the top it would paint a faint band over the hero.
+        backdropFilter: scrolled ? "blur(18px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(18px)" : "none",
       }}
     >
       <div
