@@ -108,13 +108,21 @@ export default function Navbar() {
           />
           <span
             style={{
-              fontWeight: 700,
-              fontSize: 17,
-              letterSpacing: "-.02em",
+              display: "flex",
+              flexDirection: "column",
+              lineHeight: 1.15,
               whiteSpace: "nowrap",
             }}
           >
-            Rishav<span style={{ color: "var(--dim)" }}>.dev</span>
+            <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: "-.02em" }}>
+              {header.name}
+            </span>
+            <span
+              style={{ fontWeight: 500, fontSize: 11, color: "var(--dim)" }}
+              className="navrole"
+            >
+              {header.title}
+            </span>
           </span>
         </a>
 
