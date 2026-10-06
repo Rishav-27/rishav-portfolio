@@ -9,10 +9,9 @@ export const header = {
   portfolio: "https://rishavdev.in/",
   location: "Jamshedpur, Jharkhand",
   openTo: "Open to full-time / remote · open to relocate",
-  // Drop the exported PDFs into /public with these filenames so the
+  // Drop the exported PDF into /public with this filename so the
   // downloadable resume and this data file never drift apart.
-  resumePdf: "/Rishav-Kumar-Resume.pdf",
-  resumePdfModern: "/Rishav-Kumar-Resume-Modern.pdf",
+  resumePdf: "/Rishav_Kumar_Resume.pdf",
 };
 
 /** Single source of truth for the resume summary — reused by the PDF and the site. */
@@ -68,25 +67,54 @@ export const projects: Project[] = [
       "Delivered one React codebase as an offline-capable PWA and a Capacitor Android app, with optional Supabase sync for applications and saved jobs.",
     ],
     shots: [
-      { src: "/roledock/d-today.png", caption: "Today — goal, interviews and reminders (desktop)", device: "desktop" },
-      { src: "/roledock/d-applications.png", caption: "Application pipeline (desktop)", device: "desktop" },
-      { src: "/roledock/d-detail.png", caption: "Application detail with interview rounds (desktop)", device: "desktop" },
-      { src: "/roledock/d-vault.png", caption: "Document vault (desktop)", device: "desktop" },
+      {
+        src: "/roledock/d-today.png",
+        caption: "Today — goal, interviews and reminders (desktop)",
+        device: "desktop",
+      },
+      {
+        src: "/roledock/d-applications.png",
+        caption: "Application pipeline (desktop)",
+        device: "desktop",
+      },
+      {
+        src: "/roledock/d-detail.png",
+        caption: "Application detail with interview rounds (desktop)",
+        device: "desktop",
+      },
+      {
+        src: "/roledock/d-vault.png",
+        caption: "Document vault (desktop)",
+        device: "desktop",
+      },
       { src: "/roledock/m-today.png", caption: "Today", device: "mobile" },
-      { src: "/roledock/m-applications.png", caption: "Applications", device: "mobile" },
-      { src: "/roledock/m-detail.png", caption: "Interview rounds and timeline", device: "mobile" },
-      { src: "/roledock/m-saved.png", caption: "Saved for later", device: "mobile" },
-      { src: "/roledock/m-vault.png", caption: "Document vault", device: "mobile" },
-      { src: "/roledock/m-notes.png", caption: "Notes and reminders", device: "mobile" },
+      {
+        src: "/roledock/m-applications.png",
+        caption: "Applications",
+        device: "mobile",
+      },
+      {
+        src: "/roledock/m-detail.png",
+        caption: "Interview rounds and timeline",
+        device: "mobile",
+      },
+      {
+        src: "/roledock/m-saved.png",
+        caption: "Saved for later",
+        device: "mobile",
+      },
+      {
+        src: "/roledock/m-vault.png",
+        caption: "Document vault",
+        device: "mobile",
+      },
+      {
+        src: "/roledock/m-notes.png",
+        caption: "Notes and reminders",
+        device: "mobile",
+      },
     ],
-    tech: [
-      "React",
-      "TypeScript",
-      "Capacitor",
-      "IndexedDB",
-      "Supabase",
-      "PWA",
-    ],
+    tech: ["React", "TypeScript", "Capacitor", "IndexedDB", "Supabase", "PWA"],
     // Repo is private — make it public and add the URL here.
   },
   {
@@ -139,14 +167,7 @@ export const projects: Project[] = [
       "Shipped native apps in Kotlin + Jetpack Compose and SwiftUI: chats, replies, reactions, read receipts, typing indicators, disappearing messages and 24-hour statuses.",
       "Hardened the client with message padding, Argon2id + XChaCha20-Poly1305 encrypted backups, PIN lock with escalating lockout, screenshot protection and safety-number verification.",
     ],
-    tech: [
-      "Rust",
-      "Axum",
-      "Kotlin",
-      "Jetpack Compose",
-      "SwiftUI",
-      "libsignal",
-    ],
+    tech: ["Rust", "Axum", "Kotlin", "Jetpack Compose", "SwiftUI", "libsignal"],
     // Repo is private — make it public and add the URL here.
   },
   {
@@ -169,14 +190,46 @@ export const projects: Project[] = [
     ],
     shots: [
       { src: "/gymdesk/m-welcome.png", caption: "Welcome", device: "mobile" },
-      { src: "/gymdesk/m-dashboard.png", caption: "Dashboard — live in-gym count and fee summary", device: "mobile" },
-      { src: "/gymdesk/m-members.png", caption: "Members with status filters", device: "mobile" },
-      { src: "/gymdesk/m-member.png", caption: "Member profile and membership", device: "mobile" },
-      { src: "/gymdesk/m-qr.png", caption: "Shareable QR member pass", device: "mobile" },
-      { src: "/gymdesk/m-checkin.png", caption: "Manual check-in and check-out", device: "mobile" },
-      { src: "/gymdesk/m-fees.png", caption: "Fees due with WhatsApp reminders", device: "mobile" },
-      { src: "/gymdesk/m-timings.png", caption: "Setup — shifts and timings", device: "mobile" },
-      { src: "/gymdesk/m-plans.png", caption: "Setup — plans and fees", device: "mobile" },
+      {
+        src: "/gymdesk/m-dashboard.png",
+        caption: "Dashboard — live in-gym count and fee summary",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-members.png",
+        caption: "Members with status filters",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-member.png",
+        caption: "Member profile and membership",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-qr.png",
+        caption: "Shareable QR member pass",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-checkin.png",
+        caption: "Manual check-in and check-out",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-fees.png",
+        caption: "Fees due with WhatsApp reminders",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-timings.png",
+        caption: "Setup — shifts and timings",
+        device: "mobile",
+      },
+      {
+        src: "/gymdesk/m-plans.png",
+        caption: "Setup — plans and fees",
+        device: "mobile",
+      },
     ],
     tech: ["Expo", "React Native", "TypeScript", "SQLite", "Expo Router"],
     github: "https://github.com/Rishav-27/gymdesk",
