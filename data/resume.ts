@@ -151,6 +151,38 @@ export const projects: Project[] = [
   },
   {
     num: "04",
+    slug: "gym-desk",
+    year: "2026",
+    title: "Gym Desk",
+    kind: "Personal project",
+    kicker: "Offline gym management app for iPhone & Android · My own product",
+    role: "Founder and sole engineer",
+    team: "Solo",
+    hard: "Reliable QR check-in and fee tracking for gym owners, fully offline",
+    description:
+      "A mobile app for gym owners to register members, track fees and record attendance by scanning each member's QR pass — all data stays on the phone and it works without internet.",
+    items: [
+      "Built member registration with photo, plan, admission fee and first payment, plus search and filters for active, expiring, fee-due and in-gym members.",
+      "Shipped QR attendance where each scan toggles check-in and check-out, ignores repeat scans within 60 seconds and warns about expired plans or balances due.",
+      "Implemented plan renewals, partial payments, balances, WhatsApp fee reminders and monthly collection totals.",
+      "Added an attendance log with live in-gym counts, average workout time, configurable plans and CSV export of members, payments and attendance.",
+    ],
+    shots: [
+      { src: "/gymdesk/m-welcome.png", caption: "Welcome", device: "mobile" },
+      { src: "/gymdesk/m-dashboard.png", caption: "Dashboard — live in-gym count and fee summary", device: "mobile" },
+      { src: "/gymdesk/m-members.png", caption: "Members with status filters", device: "mobile" },
+      { src: "/gymdesk/m-member.png", caption: "Member profile and membership", device: "mobile" },
+      { src: "/gymdesk/m-qr.png", caption: "Shareable QR member pass", device: "mobile" },
+      { src: "/gymdesk/m-checkin.png", caption: "Manual check-in and check-out", device: "mobile" },
+      { src: "/gymdesk/m-fees.png", caption: "Fees due with WhatsApp reminders", device: "mobile" },
+      { src: "/gymdesk/m-timings.png", caption: "Setup — shifts and timings", device: "mobile" },
+      { src: "/gymdesk/m-plans.png", caption: "Setup — plans and fees", device: "mobile" },
+    ],
+    tech: ["Expo", "React Native", "TypeScript", "SQLite", "Expo Router"],
+    github: "https://github.com/Rishav-27/gymdesk",
+  },
+  {
+    num: "05",
     slug: "cvora",
     year: "2026",
     title: "CVora",
@@ -181,7 +213,7 @@ export const projects: Project[] = [
     // github: "https://github.com/Rishav-27/<cvora-repo>",
   },
   {
-    num: "05",
+    num: "06",
     slug: "sk-enterprises",
     year: "2026",
     title: "SK Enterprises",
@@ -205,7 +237,7 @@ export const projects: Project[] = [
     // github: "https://github.com/Rishav-27/<sk-enterprises-repo>",
   },
   {
-    num: "06",
+    num: "07",
     slug: "forge",
     year: "2026",
     title: "Forge",
@@ -225,7 +257,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
   },
   {
-    num: "07",
+    num: "08",
     slug: "aeoix",
     year: "2026",
     title: "Aeoix",
@@ -255,7 +287,7 @@ export const projects: Project[] = [
     onResume: true,
   },
   {
-    num: "08",
+    num: "09",
     slug: "linkova",
     year: "2026",
     title: "Linkova",
@@ -287,7 +319,7 @@ export const projects: Project[] = [
     onResume: true,
   },
   {
-    num: "09",
+    num: "10",
     slug: "tradeverse",
     year: "2025",
     title: "TradeVerse",
@@ -309,7 +341,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "10",
+    num: "11",
     slug: "real-estate-platform",
     year: "2025",
     title: "Real Estate Platform",
@@ -331,7 +363,7 @@ export const projects: Project[] = [
     // Not on GitHub yet — push it and add the URL here.
   },
   {
-    num: "11",
+    num: "12",
     slug: "multilangdetect",
     year: "2024",
     title: "MultiLangDetect",

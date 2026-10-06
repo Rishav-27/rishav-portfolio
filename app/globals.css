@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root{
-  --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
+  --rk-op:.2; --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
   --line:rgba(0,0,0,.10); --line2:rgba(0,0,0,.18);
   --surf:rgba(0,0,0,.035); --surf2:rgba(0,0,0,.07);
   --navbg:rgba(255,255,255,.72); --stroke:rgba(0,0,0,.55);
@@ -12,7 +12,7 @@
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
+    --rk-op:.15; --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
     --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.22);
     --surf:rgba(255,255,255,.035); --surf2:rgba(255,255,255,.08);
     --navbg:rgba(0,0,0,.6); --stroke:rgba(255,255,255,.65);
@@ -20,14 +20,14 @@
   }
 }
 :root[data-theme="light"]{
-  --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
+  --rk-op:.2; --bg:#ffffff; --fg:#0b0b0c; --dim:#71717a; --faint:#65656e;
   --line:rgba(0,0,0,.10); --line2:rgba(0,0,0,.18);
   --surf:rgba(0,0,0,.035); --surf2:rgba(0,0,0,.07);
   --navbg:rgba(255,255,255,.72); --stroke:rgba(0,0,0,.55);
   --btn-bg:#0b0b0c; --btn-fg:#ffffff; --ok:#16a34a;
 }
 :root[data-theme="dark"]{
-  --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
+  --rk-op:.15; --bg:#000000; --fg:#ffffff; --dim:#8b8b93; --faint:#8f8f99;
   --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.22);
   --surf:rgba(255,255,255,.035); --surf2:rgba(255,255,255,.08);
   --navbg:rgba(0,0,0,.6); --stroke:rgba(255,255,255,.65);

@@ -12,6 +12,9 @@ const username = header.github.replace(/\/$/, "").split("/").pop() ?? "";
 
 type Activity = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
 
+const fmtDay = (d: string) =>
+  new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
 function readScheme(): "light" | "dark" {
   const attr = document.documentElement.dataset.theme;
   if (attr === "light" || attr === "dark") return attr;
@@ -67,6 +70,13 @@ export default function GithubActivity() {
           blockSize={12}
           blockMargin={4}
           fontSize={13}
+          showWeekdayLabels={["mon", "wed", "fri"]}
+          labels={{ totalCount: "{{count}} contributions in the last 12 months" }}
+          tooltips={{
+            activity: {
+              text: (a) => `${a.count} ${a.count === 1 ? "contribution" : "contributions"} on ${fmtDay(a.date)}`,
+            },
+          }}
           theme={{
             light: ["var(--surf2)", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
             dark: ["var(--surf2)", "#0e4429", "#006d32", "#26a641", "#39d353"],

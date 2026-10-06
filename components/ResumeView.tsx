@@ -500,7 +500,7 @@ export default function ResumeView() {
             ))}
           </div>
           <p style={{ fontSize: 15.5, lineHeight: 1.6, color: "var(--dim)", margin: "22px 0 0", maxWidth: "64ch", textWrap: "pretty" }}>
-            Also built: Huddle, an end-to-end encrypted messenger; LedgerX, an offline GST accounting app; RoleDock, a job-search tracker; TradeVerse, a Real Estate marketplace, MultiLangDetect and the SK Enterprises site —{" "}
+            Also built: Huddle, an end-to-end encrypted messenger; LedgerX, an offline GST accounting app; Gym Desk, an offline gym management app; RoleDock, a job-search tracker; TradeVerse, a Real Estate marketplace, MultiLangDetect and the SK Enterprises site —{" "}
             <Link href="/projects" style={{ textDecoration: "underline", textUnderlineOffset: 4, textDecorationColor: "var(--line2)" }}>all {projects.length} projects are written up in full</Link>.
           </p>
         </section>
