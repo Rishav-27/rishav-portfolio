@@ -47,7 +47,7 @@ export default function Toolkit() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))", gap: 1, background: "var(--line)", border: "1px solid var(--line)", borderRadius: 20, overflow: "hidden" }}>
           {skills.map((g) => (
-            <div key={g.num} data-reveal style={{ background: "var(--bg)", padding: "28px 26px", display: "flex", flexDirection: "column", gap: 22 }}>
+            <div key={g.num} data-reveal style={{ background: "var(--navbg)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", padding: "28px 26px", display: "flex", flexDirection: "column", gap: 22 }}>
               <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10 }}>
                 <h3 style={{ margin: 0, fontSize: 19, fontWeight: 700, letterSpacing: "-.02em" }}>{g.category}</h3>
                 <div style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12, color: "var(--faint)" }}>{g.num}</div>

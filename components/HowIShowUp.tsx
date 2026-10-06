@@ -1,8 +1,14 @@
-import Image from "next/image";
 import Section, { eyebrow, h2 } from "./Section";
-import { places } from "../data/resume";
+import { projects } from "../data/resume";
 
 export default function HowIShowUp() {
+  const solo = projects.filter((p) => p.team === "Solo" && p.kind !== "In progress").length;
+  const team = projects.filter((p) => p.kind === "Team project").length;
+  const proof = [
+    { big: "1 week", text: "to be productive in a stack I haven't used — how I picked up Supabase, WebSockets and server-side rendering." },
+    { big: String(solo), text: "products designed, built and shipped solo, from database to UI." },
+    { big: String(team), text: "live products shipped inside the WebbyWolf team — an AI answer-engine platform and a 250,000-listing marketplace." },
+  ];
   return (
     <Section id="offline">
       <div style={{ display: "grid", gridTemplateColumns: "repeat(var(--aboutcols),minmax(0,1fr))", gap: "clamp(32px,6vw,72px)", alignItems: "start" }}>
@@ -15,36 +21,18 @@ export default function HowIShowUp() {
           <p data-reveal style={{ fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.65, color: "var(--dim)", margin: 0, textWrap: "pretty" }}>
             I adapt to how a team already works rather than asking it to change for me. New codebase, new conventions, new time zone — I&apos;d rather learn the shape of things and be useful quickly than argue for my own preferences on day one.
           </p>
-          <p data-reveal style={{ fontSize: "clamp(16px,2vw,18px)", lineHeight: 1.65, color: "var(--dim)", margin: 0, textWrap: "pretty" }}>
-            Outside work the same instinct sends me travelling — Ladakh down to Kanyakumari, across Assam and Meghalaya, through Hyderabad, Bangalore and Nashik. And I&apos;m learning guitar, which is a decent reminder that being bad at something new is the price of getting good at anything.
+          <p data-reveal style={{ fontSize: "clamp(15px,1.8vw,17px)", lineHeight: 1.6, color: "var(--faint)", margin: 0 }}>
+            Outside work: travelling, and learning guitar.
           </p>
         </div>
 
-        <div data-reveal style={{ borderRadius: 20, overflow: "hidden", border: "1px solid var(--line)", position: "relative", aspectRatio: "4/5" }}>
-          <Image
-            src="/ladakh.jpg"
-            alt="On the road in Ladakh"
-            fill
-            sizes="(max-width:700px) 100vw, 50vw"
-            style={{ objectFit: "cover" }}
-          />
-          <div style={{
-            position: "absolute", left: 0, right: 0, bottom: 0,
-            padding: "40px 20px 20px", background: "linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.35) 55%, rgba(0,0,0,0))",
-          }}>
-            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12, marginBottom: 12 }}>
-              <span style={{ fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: ".14em", color: "rgba(255,255,255,.75)" }}>Places covered</span>
-              <span style={{ fontFamily: "var(--font-geist-mono), monospace", fontSize: 12.5, color: "rgba(255,255,255,.75)" }}>{places.length}+</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          {proof.map((x) => (
+            <div key={x.big} data-reveal style={{ border: "1px solid var(--line)", borderRadius: 20, padding: "clamp(20px,3vw,28px)", background: "var(--navbg)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}>
+              <div style={{ fontSize: "clamp(36px,5vw,52px)", fontWeight: 800, letterSpacing: "-.04em", lineHeight: 1, marginBottom: 10 }}>{x.big}</div>
+              <div style={{ fontSize: 16, lineHeight: 1.55, color: "var(--dim)", textWrap: "pretty" }}>{x.text}</div>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
-              {places.map((pl) => (
-                <span key={pl} style={{ padding: "7px 13px", fontSize: 13.5, fontWeight: 500, color: "#fff", background: "rgba(255,255,255,.14)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", borderRadius: 9 }}>{pl}</span>
-              ))}
-            </div>
-            <div style={{ fontSize: 13.5, lineHeight: 1.55, color: "rgba(255,255,255,.65)", textWrap: "pretty" }}>
-              Next on the list: Spiti, and the rest of the northeast.
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>

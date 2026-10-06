@@ -5,6 +5,7 @@ import type { Project } from "../data/resume";
 import { projects } from "../data/resume";
 
 import Image from "next/image";
+import PhoneStrip from "./PhoneStrip";
 
 export default function ProjectRow({ p }: { p: Project }) {
   return (
@@ -18,6 +19,10 @@ export default function ProjectRow({ p }: { p: Project }) {
             <div style={{ position: "absolute", right: 0, top: "15%", width: "28%", borderRadius: 24, overflow: "hidden", border: "6px solid #000", boxShadow: "0 30px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s" }} onMouseOver={(e) => e.currentTarget.style.transform = "translateY(-8px)"} onMouseOut={(e) => e.currentTarget.style.transform = "translateY(0)"}>
               <Image src="/roledock/m-today.png" alt="RoleDock Mobile" width={600} height={1200} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
+          </div>
+        ) : p.slug === "gym-desk" ? (
+          <div>
+            <PhoneStrip p={p} aspectRatio="16/10" />
           </div>
         ) : p.img ? (
           <div 

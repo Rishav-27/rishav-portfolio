@@ -14,7 +14,7 @@ export default function Hero() {
       <div aria-hidden style={{
         position: "absolute", right: "-6vw", bottom: "-4vh", fontSize: "clamp(180px,34vw,460px)",
         fontWeight: 900, letterSpacing: "-.06em", lineHeight: .78, color: "transparent",
-        WebkitTextStroke: "1.5px var(--stroke)", opacity: .15, pointerEvents: "none",
+        WebkitTextStroke: "1.5px var(--stroke)", opacity: "var(--rk-op)", pointerEvents: "none",
         userSelect: "none", zIndex: -1, whiteSpace: "nowrap",
       }}>RK</div>
 

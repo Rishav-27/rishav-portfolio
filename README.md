@@ -36,7 +36,7 @@ Built with **Next.js**, **TypeScript**, and a custom design system — no templa
 | **Real Estate Platform**             | Listings marketplace with SSR + row-level access control      | Next.js · Supabase · PostgreSQL     |
 | **MultiLangDetect**                  | CNN that classifies spoken language from raw audio            | Python · TensorFlow · Flask         |
 
-Recently shipped: **Huddle** · **LedgerX** · **RoleDock** · **CVora** — currently building: **Forge**
+Recently shipped: **Huddle** · **Gym Desk** · **LedgerX** · **RoleDock** · **CVora** — currently building: **Forge**
 
 → Full write-ups live on the [portfolio](https://rishav-portfolio-wine.vercel.app/#work)
 

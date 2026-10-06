@@ -44,6 +44,8 @@ export async function GET(req: NextRequest) {
     level: d.level,
   }))
 
+  contributions.sort((a, b) => a.date.localeCompare(b.date))
+
   const total = contributions.reduce((sum, d) => sum + d.count, 0)
 
   return NextResponse.json(

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import PhoneStrip from "./PhoneStrip";
 
 import { projects, header, counts, type Project } from "../data/resume";
 
@@ -350,7 +351,11 @@ export default function ProjectsIndex() {
               overflow: "hidden",
             }}
           >
-            {p.img ? (
+            {p.slug === "gym-desk" ? (
+              <div style={{ borderBottom: "1px solid var(--line)" }}>
+                <PhoneStrip p={p} aspectRatio="21/9" />
+              </div>
+            ) : p.img ? (
               <div
                 style={{
                   aspectRatio: p.bare ? "21/9" : "16/9",

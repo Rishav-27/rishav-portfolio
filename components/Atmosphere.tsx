@@ -42,7 +42,7 @@ export default function Atmosphere() {
           animate={{
             background: isNight 
               ? "linear-gradient(to bottom, #050810 0%, #0a0f1c 50%, #151b2b 100%)" 
-              : "linear-gradient(to bottom, #7dd3fc 0%, #bae6fd 50%, #f8fafc 100%)",
+              : "linear-gradient(to bottom, #c7e3f7 0%, #e3f1fb 22%, #f6f9fc 48%, #fbf8f4 100%)",
           }}
           transition={{ duration: 3, ease: "easeInOut" }}
         />
@@ -85,9 +85,9 @@ export default function Atmosphere() {
               transition={{ duration: 3 }}
               className="absolute inset-0"
             >
-            <FlappingEagle delay={0} duration={25} top={15} scale={0.8} />
-            <FlappingEagle delay={8} duration={30} top={25} scale={0.5} />
-            <FlappingEagle delay={15} duration={35} top={10} scale={0.6} />
+            {/* <FlappingEagle delay={0} duration={25} top={15} scale={0.8} /> */}
+            {/* <FlappingEagle delay={8} duration={30} top={25} scale={0.5} /> */}
+            {/* <FlappingEagle delay={15} duration={35} top={10} scale={0.6} /> */}
               {/* Cloud 1 */}
               <motion.div 
                 className="absolute w-96 h-32 bg-white/40 rounded-full blur-3xl top-[20vh]"
@@ -107,14 +107,10 @@ export default function Atmosphere() {
 
       {/* Visual Foreground Controls (Sun & Moon Visuals behind text) */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Sun Visual */}
+        {/* Sun Visual — burning sun: pulsing halo, swirling surface */}
         <motion.div
-          className="absolute w-24 h-24 sm:w-32 sm:h-32 rounded-full flex items-center justify-center"
-          style={{ 
-            right: 0, top: 0,
-            background: "radial-gradient(circle at 40% 40%, #ffffff 0%, #fef08a 40%, #f59e0b 100%)",
-            boxShadow: "0 0 40px 10px rgba(255,255,255,0.8), 0 0 100px 40px rgba(253,224,71,0.6), 0 0 200px 80px rgba(253,224,71,0.3)"
-          }}
+          className="absolute w-24 h-24 sm:w-32 sm:h-32 rounded-full"
+          style={{ right: 0, top: 0 }}
           initial={false}
           animate={{
             x: isNight ? "20vw" : "-10vw",
@@ -123,7 +119,37 @@ export default function Atmosphere() {
             opacity: isNight ? 0 : 1,
           }}
           transition={{ duration: 3, ease: "easeInOut" }}
-        />
+        >
+          {/* Pulsing fiery halo */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              inset: "-70%",
+              background: "radial-gradient(circle, rgba(255,190,60,0.45) 0%, rgba(255,150,40,0.18) 35%, rgba(255,150,40,0) 65%)",
+            }}
+            animate={{ scale: [1, 1.12, 1], opacity: [0.8, 1, 0.8] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Disc with a slowly swirling surface */}
+          <div
+            className="absolute inset-0 rounded-full overflow-hidden"
+            style={{
+              background: "radial-gradient(circle at 40% 40%, #fffbe0 0%, #ffe066 38%, #ffb52e 75%, #ff9419 100%)",
+              boxShadow: "0 0 30px 6px rgba(255,235,150,0.7), 0 0 90px 24px rgba(255,170,40,0.35)",
+            }}
+          >
+            <motion.div
+              className="absolute"
+              style={{
+                inset: "-20%",
+                background: "conic-gradient(from 0deg, rgba(255,120,20,0.35), rgba(255,255,255,0) 25%, rgba(255,140,30,0.3) 50%, rgba(255,255,255,0) 75%, rgba(255,120,20,0.35))",
+                filter: "blur(10px)",
+              }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+        </motion.div>
 
         {/* Moon Visual */}
         <motion.div
@@ -182,27 +208,45 @@ export default function Atmosphere() {
   );
 }
 
-const FlappingEagle = ({ delay = 0, top = 20, duration = 20, scale = 1 }: any) => {
-  return (
-    <motion.div
-      className="absolute opacity-60"
-      style={{ top: `${top}vh`, left: "-10vw", transform: `scale(${scale})` }}
-      animate={{ x: ["0vw", "120vw"], y: [0, -30, 0] }}
-      transition={{ duration, repeat: Infinity, ease: "linear", delay }}
-    >
-      <svg width="60" height="60" viewBox="0 0 100 100" fill="#1F2937">
-        {/* Flapping Wings Only (No body) */}
-        <motion.g 
-          style={{ transformOrigin: "50% 50%" }}
-          animate={{ scaleY: [1, -0.6, 1] }}
-          transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {/* Back Wing */}
-          <path d="M 50 48 Q 70 15 85 10 Q 65 30 50 48 Z" opacity="0.7" />
-          {/* Front Wing */}
-          <path d="M 50 48 Q 35 10 15 5 Q 40 25 50 48 Z" />
-        </motion.g>
-      </svg>
-    </motion.div>
-  );
-};
+// Birds are disabled. To bring them back, uncomment the three <FlappingEagle /> lines above
+// and ONE of the versions below.
+
+// --- Current version: small gull strokes ---
+// const FlappingEagle = ({ delay = 0, top = 20, duration = 20, scale = 1 }: any) => {
+//   return (
+//     <motion.div
+//       className="absolute opacity-40"
+//       style={{ top: `${top}vh`, left: "-10vw", transform: `scale(${scale})` }}
+//       animate={{ x: ["0vw", "120vw"], y: [0, -20, 0] }}
+//       transition={{ duration, repeat: Infinity, ease: "linear", delay }}
+//     >
+//       <svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="#334155" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+//         <motion.path
+//           d="M2 10 Q 10 1 20 10 Q 30 1 38 10"
+//           style={{ transformOrigin: "50% 50%" }}
+//           animate={{ scaleY: [1, -0.5, 1] }}
+//           transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut" }}
+//         />
+//       </svg>
+//     </motion.div>
+//   );
+// };
+
+// --- Previous version: wing-only eagles ---
+// const FlappingEagle = ({ delay = 0, top = 20, duration = 20, scale = 1 }: any) => {
+//   return (
+//     <motion.div
+//       className="absolute opacity-60"
+//       style={{ top: `${top}vh`, left: "-10vw", transform: `scale(${scale})` }}
+//       animate={{ x: ["0vw", "120vw"], y: [0, -30, 0] }}
+//       transition={{ duration, repeat: Infinity, ease: "linear", delay }}
+//     >
+//       <svg width="60" height="60" viewBox="0 0 100 100" fill="#1F2937">
+//         <motion.g style={{ transformOrigin: "50% 50%" }} animate={{ scaleY: [1, -0.6, 1] }} transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}>
+//           <path d="M 50 48 Q 70 15 85 10 Q 65 30 50 48 Z" opacity="0.7" />
+//           <path d="M 50 48 Q 35 10 15 5 Q 40 25 50 48 Z" />
+//         </motion.g>
+//       </svg>
+//     </motion.div>
+//   );
+// };
