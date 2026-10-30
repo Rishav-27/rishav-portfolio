@@ -1,6 +1,10 @@
 // Sign-in screen for /practice. A standalone HTML page in the site's monochrome style,
 // so it loads instantly without the portfolio's scripts.
 
+// These pages are plain HTML, so Next.js doesn't add the site icon tags for them.
+export const ICON_LINKS =
+  '<link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-icon.png">'
+
 const escape = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!)
 
@@ -18,6 +22,7 @@ export function loginPage({ error, notice, username = "" }: { error?: string; no
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Sign in · Practice</title>
+${ICON_LINKS}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">

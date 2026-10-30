@@ -1,6 +1,6 @@
 import { createHash, createHmac, timingSafeEqual } from "node:crypto"
 import { NextRequest, NextResponse } from "next/server"
-import { loginPage } from "./login-page"
+import { ICON_LINKS, loginPage } from "./login-page"
 
 // Private study page. The HTML lives in a private GitHub repo and is fetched per request,
 // so none of it is in this (public) repo. Signing in sets a signed cookie for 30 days.
@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
   if (page === null) {
     return new NextResponse("Could not load the practice page. Refresh to try again.", { status: 502, headers: privateHeaders })
   }
-  return html(page)
+  return html(page.replace("</head>", `${ICON_LINKS}</head>`))
 }
 
 // Fetch the page from the private repo, retrying once if GitHub drops the connection.
